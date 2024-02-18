@@ -3,13 +3,13 @@
 
 .dropdown {
 	position: absolute;
-	display: flex;
-	flex-direction: column;
+	display: none;
 	background-color: map-get(colors.$colors, c_white);
 	border: 1px solid map-get(colors.$colors, c_ash);
 	border-radius: 1rem;
 	text-align: center;
 	overflow: hidden;
+	z-index: 10;
 
 	&--create {
 		top: 0;
@@ -34,6 +34,11 @@
 			color: map-get(colors.$colors, c_primary);
 		}
 	}
+}
+
+.create-active {
+	display: flex;
+	flex-direction: column;
 }
 
 @media screen and (min-width: 992px) {

@@ -1,10 +1,11 @@
+import { UiContextProvider } from './context/UiContextProvider';
 import Nav from './components/layout/nav/Nav';
 
 const App = () => {
 	return (
-		<div>
+		<UiContextProvider>
 			<Nav />
-		</div>
+		</UiContextProvider>
 	);
 };
 

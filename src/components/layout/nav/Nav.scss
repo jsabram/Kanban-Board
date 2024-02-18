@@ -9,6 +9,7 @@
 	padding: 1rem;
 	background-color: map-get(colors.$colors, c_white);
 	border-right: 1px solid map-get(colors.$colors, c_ash);
+    z-index: 20;
 
 	&__logo {
 		display: none;
@@ -57,6 +58,7 @@
 		&-title {
 			display: none;
 			margin-left: 1rem;
+			pointer-events: none;
 		}
 	}
 }

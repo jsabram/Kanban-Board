@@ -1,3 +1,5 @@
+import { useContext, useEffect } from 'react';
+import { UiContext } from '../../../context/ui-context';
 import LinksDropdown from '../../reusable/LinksDropdown';
 import HomeIcon from '../../icon-components/HomeIcon';
 import BoardIcon from '../../icon-components/BoardIcon';
@@ -9,6 +11,20 @@ import LogoIcon from '../../icon-components/LogoIcon';
 import './Nav.scss';
 
 const Nav = () => {
+	const uiCtx = useContext(UiContext);
+
+	useEffect(() => {
+		const hideDropdowns = (e: MouseEvent) => {
+			uiCtx.closeOnBlur(e, 'create');
+		};
+
+		window.addEventListener('click', hideDropdowns);
+
+		return () => {
+			window.removeEventListener('click', hideDropdowns);
+		};
+	}, []);
+
 	return (
 		<nav className='nav'>
 			<a href='#' className='nav__logo'>
@@ -20,10 +36,22 @@ const Nav = () => {
 					<HomeIcon />
 					<p className='nav__link-title'>Home</p>
 				</a>
-				<p className='nav__link nav__link--create'>
+				<p
+					id='create'
+					className='nav__link nav__link--create'
+					tabIndex={0}
+					onClick={() => {
+						uiCtx.openDropdown('create');
+					}}
+					onKeyDown={(e) => {
+						e.key === 'Enter' && uiCtx.openDropdown('create');
+					}}
+				>
 					<AddIcon />
 					<p className='nav__link-title'>Create</p>
-					<LinksDropdown className='create'>
+					<LinksDropdown
+						className={`create ${uiCtx.createDropdown && 'create-active'}`}
+					>
 						<a href='#' className='nav__link--create-dropdown-link'>
 							Create a task
 						</a>
