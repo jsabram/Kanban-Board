@@ -1,0 +1,46 @@
+@use '../../assets/scss/colors.scss' as colors;
+@use '../../assets/scss/mixins.scss' as mixins;
+
+.dropdown {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	background-color: map-get(colors.$colors, c_white);
+	border: 1px solid map-get(colors.$colors, c_ash);
+	border-radius: 1rem;
+	text-align: center;
+	overflow: hidden;
+
+	&--create {
+		top: 0;
+		right: calc(-130px - 1rem);
+		width: 130px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	a {
+		@include mixins.link;
+		padding: 1rem;
+		border-bottom: 1px solid map-get(colors.$colors, c_ash);
+		transition: background-color 0.3s;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
+
+		&:hover {
+			background-color: map-get(colors.$colors, c_primary_light);
+			color: map-get(colors.$colors, c_primary);
+		}
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.dropdown {
+		&--create {
+			right: calc(-164px - 2rem);
+			width: 164px;
+		}
+	}
+}

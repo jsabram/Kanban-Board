@@ -1,3 +1,4 @@
+import LinksDropdown from '../../reusable/LinksDropdown';
 import HomeIcon from '../../icon-components/HomeIcon';
 import BoardIcon from '../../icon-components/BoardIcon';
 import AddIcon from '../../icon-components/AddIcon';
@@ -22,14 +23,14 @@ const Nav = () => {
 				<p className='nav__link nav__link--create'>
 					<AddIcon />
 					<p className='nav__link-title'>Create</p>
-					<div className='nav__link--create-dropdown'>
+					<LinksDropdown className='create'>
 						<a href='#' className='nav__link--create-dropdown-link'>
 							Create a task
 						</a>
 						<a href='#' className='nav__link--create-dropdown-link'>
 							Create a board
 						</a>
-					</div>
+					</LinksDropdown>
 				</p>
 				<a href='#' className='nav__link'>
 					<TaskListIcon />
