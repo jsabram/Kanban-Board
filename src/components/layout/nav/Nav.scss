@@ -31,6 +31,7 @@
 		padding: 1rem;
 		margin-block: 1.5rem;
 		border-radius: 1rem;
+		cursor: pointer;
 
 		&:hover {
 			color: map-get(colors.$colors, c_primary);
@@ -39,6 +40,49 @@
 		&--active {
 			background-color: map-get(colors.$colors, c_primary_light);
 			color: map-get(colors.$colors, c_primary);
+
+			.svg-light {
+				fill: map-get(colors.$colors, c_primary_medium);
+			}
+
+			.svg-dark {
+				fill: map-get(colors.$colors, c_primary);
+			}
+		}
+
+		&--create {
+			position: relative;
+
+			&-dropdown {
+				position: absolute;
+				top: 0;
+				right: calc(-130px - 1rem);
+				display: flex;
+				flex-direction: column;
+				width: 130px;
+				border: 1px solid map-get(colors.$colors, c_ash);
+				border-left: none;
+				border-top-right-radius: 1rem;
+				border-bottom-right-radius: 1rem;
+				text-align: center;
+				overflow: hidden;
+
+				&-link {
+					@include mixins.link;
+					padding: 1rem;
+					border-bottom: 1px solid map-get(colors.$colors, c_ash);
+					transition: background-color 0.3s;
+
+					&:last-of-type {
+						border-bottom: none;
+					}
+
+					&:hover {
+						background-color: map-get(colors.$colors, c_primary_light);
+						color: map-get(colors.$colors, c_primary);
+					}
+				}
+			}
 		}
 
 		&-title {
@@ -67,6 +111,13 @@
 		&__link {
 			&-title {
 				display: block;
+			}
+
+			&--create {
+				&-dropdown {
+					right: calc(-164px - 2rem);
+					width: 164px;
+				}
 			}
 		}
 	}
