@@ -5,14 +5,18 @@
 	position: fixed;
 	top: 0;
 	bottom: 0;
-	padding: 2rem;
+	left: 0;
+	padding: 1rem;
 	background-color: map-get(colors.$colors, c_white);
 	border-right: 1px solid map-get(colors.$colors, c_ash);
 
-	&__links {
-		margin-top: 2rem;
+	&__logo {
+		display: none;
+	}
 
+	&__links {
 		&-heading {
+			display: none;
 			font-size: 1.5rem;
 			text-transform: uppercase;
 			letter-spacing: 2px;
@@ -38,12 +42,32 @@
 		}
 
 		&-title {
-            display: none;
+			display: none;
 			margin-left: 1rem;
 		}
 	}
 }
 
-@media screen and (min-width: 768px) {
-    
+@media screen and (min-width: 992px) {
+	.nav {
+		padding: 2rem;
+
+		&__logo {
+			display: block;
+		}
+
+		&__links {
+			margin-top: 2rem;
+
+			&-heading {
+				display: block;
+			}
+		}
+
+		&__link {
+			&-title {
+				display: block;
+			}
+		}
+	}
 }
