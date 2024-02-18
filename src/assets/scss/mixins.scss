@@ -1,0 +1,14 @@
+@use './colors.scss' as colors;
+
+@mixin flexbox($justify, $align, $direction) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+}
+
+@mixin link {
+	text-decoration: none;
+	color: map-get(colors.$colors, c_gray);
+	transition: color 0.3s;
+}

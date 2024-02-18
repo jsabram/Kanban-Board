@@ -1,0 +1,22 @@
+@use './assets/scss/colors.scss' as colors;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body,
+input,
+input::placeholder,
+button {
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 1.6rem;
+	color: map-get(colors.$colors, c_gray);
+}

@@ -1,0 +1,49 @@
+@use '../../../assets/scss/colors.scss' as colors;
+@use '../../../assets/scss/mixins.scss' as mixins;
+
+.nav {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	padding: 2rem;
+	background-color: map-get(colors.$colors, c_white);
+	border-right: 1px solid map-get(colors.$colors, c_ash);
+
+	&__links {
+		margin-top: 2rem;
+
+		&-heading {
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			color: map-get(colors.$colors, c_gray_light);
+		}
+	}
+
+	&__link {
+		@include mixins.link;
+		@include mixins.flexbox(flex-start, flex-start, row);
+		width: 100%;
+		padding: 1rem;
+		margin-block: 1.5rem;
+		border-radius: 1rem;
+
+		&:hover {
+			color: map-get(colors.$colors, c_primary);
+		}
+
+		&--active {
+			background-color: map-get(colors.$colors, c_primary_light);
+			color: map-get(colors.$colors, c_primary);
+		}
+
+		&-title {
+            display: none;
+			margin-left: 1rem;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+    
+}
