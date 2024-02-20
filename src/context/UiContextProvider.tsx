@@ -9,8 +9,6 @@ export const UiContextProvider: React.FC<ChildrenProps> = ({ children }) => {
 	const [userDropdown, setUserDropdown] = useState(false);
 
 	const openDropdown = (id: string) => {
-		resetDropdowns();
-
 		switch (id) {
 			case 'create':
 				setCreateDropdown(true);
@@ -48,13 +46,6 @@ export const UiContextProvider: React.FC<ChildrenProps> = ({ children }) => {
 		}
 	};
 
-	const resetDropdowns = () => {
-		setCreateDropdown(false);
-		setSearchDropdown(false);
-		setNotificationsDropdown(false);
-		setUserDropdown(false);
-	};
-
 	const closeOnBlur = (e: MouseEvent, id: string) => {
 		const target = e.target as HTMLElement;
 
@@ -73,7 +64,6 @@ export const UiContextProvider: React.FC<ChildrenProps> = ({ children }) => {
 				notificationsDropdown,
 				userDropdown,
 				openDropdown,
-				resetDropdowns,
 				closeOnBlur,
 			}}
 		>

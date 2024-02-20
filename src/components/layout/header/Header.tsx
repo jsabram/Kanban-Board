@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { UiContext } from '../../../context/ui-context';
 import LinksDropdown from '../../reusable/LinksDropdown';
 import SearchIcon from '../../icon-components/SearchIcon';
@@ -21,23 +21,6 @@ const Header = () => {
 		setInputValue(searchedValue);
 	};
 
-	const closeInput = () => {
-		setIsOpen(false);
-		setInputValue('');
-	};
-
-	useEffect(() => {
-		const hideDropdowns = (e: MouseEvent) => {
-			uiCtx.closeOnBlur(e, 'search');
-		};
-
-		window.addEventListener('click', hideDropdowns);
-
-		return () => {
-			window.removeEventListener('click', hideDropdowns);
-		};
-	}, []);
-
 	return (
 		<header className='header'>
 			<div className='header__search'>
@@ -58,7 +41,10 @@ const Header = () => {
 					}`}
 					placeholder='Search'
 					onChange={searchHandler}
-					onBlur={closeInput}
+					onBlur={() => {
+						setIsOpen(false);
+						setInputValue('');
+					}}
 					value={inputValue}
 				/>
 				<LinksDropdown
@@ -93,7 +79,9 @@ const Header = () => {
 					onClick={() => uiCtx.openDropdown('user')}
 				>
 					<UserIcon />
-					<LinksDropdown className={`user ${uiCtx.userDropdown && 'user-active'}`}>
+					<LinksDropdown
+						className={`user ${uiCtx.userDropdown && 'user-active'}`}
+					>
 						<a href='#'>My tasks</a>
 						<a href='#'>Settings</a>
 					</LinksDropdown>

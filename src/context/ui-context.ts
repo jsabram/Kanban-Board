@@ -6,7 +6,6 @@ interface UiContextProps {
 	notificationsDropdown: boolean;
 	userDropdown: boolean;
 	openDropdown: (id: string) => void;
-	resetDropdowns: () => void;
 	closeOnBlur: (e: MouseEvent, id: string) => void;
 }
 
@@ -16,6 +15,5 @@ export const UiContext = React.createContext<UiContextProps>({
 	notificationsDropdown: false,
 	userDropdown: false,
 	openDropdown: () => {},
-	resetDropdowns: () => {},
 	closeOnBlur: () => {},
 });
