@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UiContext } from '../../../context/ui-context';
+import LinksDropdown from '../../reusable/LinksDropdown';
 import SearchIcon from '../../icon-components/SearchIcon';
 import BellIcon from '../../icon-components/BellIcon';
 import UserIcon from '../../icon-components/UserIcon';
@@ -7,13 +9,21 @@ import './Header.scss';
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [inputValue, setInputValue] = useState('');
 
-	const openInput = () => {
-		setIsOpen(true);
+	const uiCtx = useContext(UiContext);
+
+	const searchHandler = (e: React.ChangeEvent) => {
+		const target = e.target as HTMLInputElement;
+		const searchedValue = target.value;
+
+		uiCtx.openDropdown('search');
+		setInputValue(searchedValue);
 	};
 
 	const closeInput = () => {
 		setIsOpen(false);
+		setInputValue('');
 	};
 
 	useEffect(() => {
@@ -22,6 +32,7 @@ const Header = () => {
 
 			if (target.id !== 'search-btn' && target.id !== 'search-input') {
 				setIsOpen(false);
+				uiCtx.closeOnBlur(e, 'search');
 			}
 		};
 
@@ -40,7 +51,7 @@ const Header = () => {
 					className={`header__search-btn ${
 						isOpen && 'header__search-btn--active'
 					}`}
-					onClick={openInput}
+					onClick={() => setIsOpen(true)}
 				>
 					<SearchIcon />
 				</button>
@@ -52,10 +63,21 @@ const Header = () => {
 						isOpen && 'header__search-input--active'
 					}`}
 					placeholder='Search'
+					onChange={searchHandler}
 					onBlur={closeInput}
+					value={inputValue}
 				/>
+				<LinksDropdown
+					className={`results ${uiCtx.searchDropdown && 'results-active'}`}
+				>
+					<a href='#'>Test 1</a>
+					<a href='#'>Test 2</a>
+					<a href='#'>Test 3</a>
+				</LinksDropdown>
 			</div>
-			<div className={`header__controls ${isOpen && 'header__controls--hidden'}`}>
+			<div
+				className={`header__controls ${isOpen && 'header__controls--hidden'}`}
+			>
 				<button className='header__controls-notifications'>
 					<BellIcon />
 				</button>

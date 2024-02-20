@@ -4,6 +4,8 @@
 .dropdown {
 	position: absolute;
 	display: none;
+	// display: flex; // to be deleted
+	// flex-direction: column; // to be deleted
 	background-color: map-get(colors.$colors, c_white);
 	border: 1px solid map-get(colors.$colors, c_ash);
 	border-radius: 1rem;
@@ -17,6 +19,15 @@
 		width: 130px;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
+	}
+
+	&--results {
+		top: 26px;
+		right: 0;
+		left: calc(26px + 1rem);
+		border-top: none;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
 	}
 
 	a {
@@ -36,7 +47,8 @@
 	}
 }
 
-.create-active {
+.create-active,
+.results-active {
 	display: flex;
 	flex-direction: column;
 }
