@@ -12,3 +12,19 @@
 	color: map-get(colors.$colors, c_gray);
 	transition: color 0.3s;
 }
+
+@mixin icon-btn {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+
+	&:hover {
+		.svg-light {
+			fill: map-get(colors.$colors, c_primary_medium);
+		}
+
+		.svg-dark {
+			fill: map-get(colors.$colors, c_primary);
+		}
+	}
+}

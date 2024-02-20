@@ -1,0 +1,98 @@
+@use '../../../assets/scss/colors.scss';
+@use '../../../assets/scss/mixins.scss';
+
+.header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	@include mixins.flexbox(space-between, flex-start, row);
+	width: calc(100vw - 40px - 2rem);
+	padding: 2rem 2rem 1rem;
+	background-color: map-get(colors.$colors, c_white);
+	border-bottom: 1px solid map-get(colors.$colors, c_ash);
+
+	&__search {
+		display: flex;
+		width: 100%;
+
+		&-btn {
+			@include mixins.flexbox(center, center, column);
+			@include mixins.icon-btn;
+			margin-right: 1rem;
+
+			&--active {
+				.svg-light {
+					fill: map-get(colors.$colors, c_primary_medium);
+				}
+
+				.svg-dark {
+					fill: map-get(colors.$colors, c_primary);
+				}
+			}
+		}
+
+		&-input {
+			width: 100%;
+			padding: 0 1rem;
+			border: none;
+			border-bottom: 1px solid map-get(colors.$colors, c_ash);
+			outline: none;
+			caret-color: map-get(colors.$colors, c_gray_light);
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform 0.3s;
+
+			&:focus {
+				border-color: map-get(colors.$colors, c_gray);
+			}
+
+			&::placeholder {
+				color: map-get(colors.$colors, c_gray_light);
+			}
+
+			&--active {
+				transform: scaleX(1);
+			}
+		}
+	}
+
+	&__controls {
+		display: flex;
+
+		&--hidden {
+			display: none;
+		}
+
+		&-notifications,
+		&-user {
+			@include mixins.flexbox(center, center, column);
+			@include mixins.icon-btn;
+		}
+
+		&-notifications {
+			margin-right: 1rem;
+		}
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.header {
+		width: calc(100vw - 164px - 4rem);
+		padding: 2rem;
+
+		&__search {
+			width: 80%;
+			max-width: 600px;
+		}
+
+		&__controls {
+			&--hidden {
+				display: flex;
+			}
+
+			&-notifications {
+				margin-right: 2rem;
+			}
+		}
+	}
+}
