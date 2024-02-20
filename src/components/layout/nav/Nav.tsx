@@ -15,7 +15,23 @@ const Nav = () => {
 
 	useEffect(() => {
 		const hideDropdowns = (e: MouseEvent) => {
-			uiCtx.closeOnBlur(e, 'create');
+			const target = e.target as HTMLElement;
+
+			if (target.id !== 'create') {
+				uiCtx.closeOnBlur(e, 'create');
+			}
+
+			if (target.id !== 'search') {
+				uiCtx.closeOnBlur(e, 'search');
+			}
+
+			if (target.id !== 'notifications') {
+				uiCtx.closeOnBlur(e, 'notifications');
+			}
+
+			if (target.id !== 'user') {
+				uiCtx.closeOnBlur(e, 'user');
+			}
 		};
 
 		window.addEventListener('click', hideDropdowns);

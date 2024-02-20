@@ -27,19 +27,14 @@ const Header = () => {
 	};
 
 	useEffect(() => {
-		const focusInput = (e: MouseEvent) => {
-			const target = e.target as HTMLElement;
-
-			if (target.id !== 'search-btn' && target.id !== 'search-input') {
-				setIsOpen(false);
-				uiCtx.closeOnBlur(e, 'search');
-			}
+		const hideDropdowns = (e: MouseEvent) => {
+			uiCtx.closeOnBlur(e, 'search');
 		};
 
-		window.addEventListener('click', focusInput);
+		window.addEventListener('click', hideDropdowns);
 
 		return () => {
-			window.removeEventListener('click', focusInput);
+			window.removeEventListener('click', hideDropdowns);
 		};
 	}, []);
 
@@ -47,7 +42,6 @@ const Header = () => {
 		<header className='header'>
 			<div className='header__search'>
 				<button
-					id='search-btn'
 					className={`header__search-btn ${
 						isOpen && 'header__search-btn--active'
 					}`}
@@ -56,7 +50,7 @@ const Header = () => {
 					<SearchIcon />
 				</button>
 				<input
-					id='search-input'
+					id='search'
 					type='text'
 					autoComplete='off'
 					className={`header__search-input ${
@@ -78,11 +72,31 @@ const Header = () => {
 			<div
 				className={`header__controls ${isOpen && 'header__controls--hidden'}`}
 			>
-				<button className='header__controls-notifications'>
+				<button
+					id='notifications'
+					className='header__controls-notifications'
+					onClick={() => uiCtx.openDropdown('notifications')}
+				>
 					<BellIcon />
+					<LinksDropdown
+						className={`notifications ${
+							uiCtx.notificationsDropdown && 'notifications-active'
+						}`}
+					>
+						<a href='#'>Test 1</a>
+						<a href='#'>Test 2</a>
+					</LinksDropdown>
 				</button>
-				<button className='header__controls-user'>
+				<button
+					id='user'
+					className='header__controls-user'
+					onClick={() => uiCtx.openDropdown('user')}
+				>
 					<UserIcon />
+					<LinksDropdown className={`user ${uiCtx.userDropdown && 'user-active'}`}>
+						<a href='#'>My tasks</a>
+						<a href='#'>Settings</a>
+					</LinksDropdown>
 				</button>
 			</div>
 		</header>
