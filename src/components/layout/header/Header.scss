@@ -1,5 +1,5 @@
-@use '../../../assets/scss/colors.scss';
-@use '../../../assets/scss/mixins.scss';
+@use '../../../assets/scss/colors.scss' as colors;
+@use '../../../assets/scss/mixins.scss' as mixins;
 
 .header {
 	position: fixed;
@@ -68,11 +68,26 @@
 		&-user {
 			@include mixins.flexbox(center, center, column);
 			@include mixins.icon-btn;
-            position: relative;
+			position: relative;
 		}
 
 		&-notifications {
 			margin-right: 1rem;
+
+			&-alert {
+				position: absolute;
+				top: 0;
+				right: 6px;
+				display: none;
+				height: 5px;
+				width: 5px;
+				background-color: map-get(colors.$colors, c_red);
+				border-radius: 50%;
+
+				&--active {
+					display: block;
+				}
+			}
 		}
 	}
 }

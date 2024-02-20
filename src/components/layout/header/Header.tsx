@@ -63,6 +63,8 @@ const Header = () => {
 					className='header__controls-notifications'
 					onClick={() => uiCtx.openDropdown('notifications')}
 				>
+					{/* header__controls-notifications-alert--active > to be added when there are undread notifications */}
+					<span className='header__controls-notifications-alert'></span>
 					<BellIcon />
 					<LinksDropdown
 						className={`notifications ${
