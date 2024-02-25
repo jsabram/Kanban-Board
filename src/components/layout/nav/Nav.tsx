@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { UiContext } from '../../../context/ui-context';
 import LinksDropdown from '../../reusable/LinksDropdown';
@@ -14,6 +15,8 @@ import './Nav.scss';
 const Nav = () => {
 	const uiCtx = useContext(UiContext);
 
+	const location = useLocation();
+
 	return (
 		<nav className='nav'>
 			<NavLink to='/' className='nav__logo'>
@@ -21,16 +24,28 @@ const Nav = () => {
 			</NavLink>
 			<div className='nav__links'>
 				<h3 className='nav__links-heading'>Overview</h3>
-				<NavLink to='/' className='nav__link'>
+				<NavLink
+					to='/'
+					className={({ isActive }) =>
+						isActive ? 'nav__link nav__link--active' : 'nav__link'
+					}
+					end={true}
+				>
 					<HomeIcon />
 					<p className='nav__link-title'>Home</p>
 				</NavLink>
 				<div
 					id='create'
-					className='nav__link nav__link--create'
+					className={
+						location.pathname === '/create-task' ||
+						location.pathname === '/create-board'
+							? 'nav__link nav__link--create nav__link--active'
+							: 'nav__link nav__link--create'
+					}
 					tabIndex={0}
 					onClick={() => {
 						uiCtx.openDropdown('create');
+						console.log(location);
 					}}
 					onKeyDown={(e) => {
 						e.key === 'Enter' && uiCtx.openDropdown('create');
@@ -55,15 +70,30 @@ const Nav = () => {
 						</NavLink>
 					</LinksDropdown>
 				</div>
-				<NavLink to='/assigned-tasks' className='nav__link'>
+				<NavLink
+					to='/assigned-tasks'
+					className={({ isActive }) =>
+						isActive ? 'nav__link nav__link--active' : 'nav__link'
+					}
+				>
 					<TaskListIcon />
 					<p className='nav__link-title'>Assigned tasks</p>
 				</NavLink>
-				<NavLink to='/boards' className='nav__link  '>
+				<NavLink
+					to='/boards'
+					className={({ isActive }) =>
+						isActive ? 'nav__link nav__link--active' : 'nav__link'
+					}
+				>
 					<BoardIcon />
 					<p className='nav__link-title'>Kanban boards</p>
 				</NavLink>
-				<NavLink to='/settings' className='nav__link nav__link--active'>
+				<NavLink
+					to='/settings'
+					className={({ isActive }) =>
+						isActive ? 'nav__link nav__link--active' : 'nav__link'
+					}
+				>
 					<SettingsIcon />
 					<p className='nav__link-title'>Settings</p>
 				</NavLink>

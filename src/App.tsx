@@ -14,6 +14,7 @@ import SettingsPage from './components/pages/SettingsPage';
 const App = () => {
 	const uiCtx = useContext(UiContext);
 
+	// Hiding dropdowns if the user clicks elsewhere
 	useEffect(() => {
 		const hideDropdowns = (e: MouseEvent) => {
 			const target = e.target as HTMLElement;
