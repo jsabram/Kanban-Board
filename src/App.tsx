@@ -1,7 +1,6 @@
 import { useEffect, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { UiContext } from './context/ui-context';
-import RootPage from './components/pages/RootPage';
 import HomePage from './components/pages/HomePage';
 import SettingsPage from './components/pages/SettingsPage';
 import Nav from './components/layout/nav/Nav';

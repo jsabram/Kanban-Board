@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import { UiContext } from '../../../context/ui-context';
 import LinksDropdown from '../../reusable/LinksDropdown';
 import HomeIcon from '../../icon-components/HomeIcon';
@@ -56,10 +57,10 @@ const Nav = () => {
 					<BoardIcon />
 					<p className='nav__link-title'>Kanban boards</p>
 				</a>
-				<a href='#' className='nav__link nav__link--active'>
+				<NavLink to='/settings' className='nav__link nav__link--active'>
 					<SettingsIcon />
 					<p className='nav__link-title'>Settings</p>
-				</a>
+				</NavLink>
 			</div>
 		</nav>
 	);
