@@ -1,34 +1,18 @@
 import { useEffect, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { UiContext } from './context/ui-context';
-import HomePage from './components/pages/HomePage';
-import SettingsPage from './components/pages/SettingsPage';
 import Nav from './components/layout/nav/Nav';
 import Header from './components/layout/header/Header';
 import Main from './components/layout/main/Main';
+import HomePage from './components/pages/HomePage';
+import CreateTaskPage from './components/pages/CreateTaskPage';
+import CreateBoardPage from './components/pages/CreateBoardPage';
+import TaskSelectionPage from './components/pages/TaskSelectionPage';
+import BoardsSelectionPage from './components/pages/BoardsSelectionPage';
+import SettingsPage from './components/pages/SettingsPage';
 
 const App = () => {
 	const uiCtx = useContext(UiContext);
-
-	// const router = createBrowserRouter(
-	// 	[
-	// 		{
-	// 			path: '/',
-	// 			element: <RootPage />,
-	// 			children: [
-	// 				{
-	// 					path: '',
-	// 					element: <HomePage />,
-	// 				},
-	// 				{
-	// 					path: '/settings',
-	// 					element: <SettingsPage />,
-	// 				},
-	// 			],
-	// 		},
-	// 	],
-	// 	{ basename: '/Kanban-Board' }
-	// );
 
 	useEffect(() => {
 		const hideDropdowns = (e: MouseEvent) => {
@@ -66,6 +50,10 @@ const App = () => {
 				<Routes>
 					<Route path='/' element={<HomePage />} />
 					<Route path='/settings' element={<SettingsPage />} />
+					<Route path='/create-task' element={<CreateTaskPage />} />
+					<Route path='/create-board' element={<CreateBoardPage />} />
+					<Route path='/assigned-tasks' element={<TaskSelectionPage />} />
+					<Route path='/boards' element={<BoardsSelectionPage />} />
 				</Routes>
 			</Main>
 		</>

@@ -16,15 +16,15 @@ const Nav = () => {
 
 	return (
 		<nav className='nav'>
-			<a href='#' className='nav__logo'>
+			<NavLink to='/' className='nav__logo'>
 				<LogoIcon />
-			</a>
+			</NavLink>
 			<div className='nav__links'>
 				<h3 className='nav__links-heading'>Overview</h3>
-				<a href='#' className='nav__link'>
+				<NavLink to='/' className='nav__link'>
 					<HomeIcon />
 					<p className='nav__link-title'>Home</p>
-				</a>
+				</NavLink>
 				<div
 					id='create'
 					className='nav__link nav__link--create'
@@ -41,22 +41,28 @@ const Nav = () => {
 					<LinksDropdown
 						className={`create ${uiCtx.createDropdown && 'create-active'}`}
 					>
-						<a href='#' className='nav__link--create-dropdown-link'>
+						<NavLink
+							to='/create-task'
+							className='nav__link--create-dropdown-link'
+						>
 							Create a task
-						</a>
-						<a href='#' className='nav__link--create-dropdown-link'>
+						</NavLink>
+						<NavLink
+							to='/create-board'
+							className='nav__link--create-dropdown-link'
+						>
 							Create a board
-						</a>
+						</NavLink>
 					</LinksDropdown>
 				</div>
-				<a href='#' className='nav__link'>
+				<NavLink to='/assigned-tasks' className='nav__link'>
 					<TaskListIcon />
 					<p className='nav__link-title'>Assigned tasks</p>
-				</a>
-				<a href='#' className='nav__link  '>
+				</NavLink>
+				<NavLink to='/boards' className='nav__link  '>
 					<BoardIcon />
 					<p className='nav__link-title'>Kanban boards</p>
-				</a>
+				</NavLink>
 				<NavLink to='/settings' className='nav__link nav__link--active'>
 					<SettingsIcon />
 					<p className='nav__link-title'>Settings</p>
