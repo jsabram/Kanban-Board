@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { UiContextProvider } from './context/UiContextProvider';
 import App from './App';
 
@@ -9,9 +9,9 @@ const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 root.render(
-	<HashRouter>
+	<BrowserRouter >
 		<UiContextProvider>
 			<App />
 		</UiContextProvider>
-	</HashRouter>
+	</BrowserRouter>
 );
