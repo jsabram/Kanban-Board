@@ -8,22 +8,25 @@ import SettingsPage from './components/pages/SettingsPage';
 const App = () => {
 	const uiCtx = useContext(UiContext);
 
-	const router = createBrowserRouter([
-		{
-			path: '/Kanban-Board',
-			element: <RootPage />,
-			children: [
-				{
-					path: '',
-					element: <HomePage />,
-				},
-				{
-					path: 'settings',
-					element: <SettingsPage />,
-				},
-			],
-		},
-	]);
+	const router = createBrowserRouter(
+		[
+			{
+				path: '/',
+				element: <RootPage />,
+				children: [
+					{
+						path: '',
+						element: <HomePage />,
+					},
+					{
+						path: 'settings',
+						element: <SettingsPage />,
+					},
+				],
+			},
+		],
+		{ basename: '/Kanban-Board' }
+	);
 
 	useEffect(() => {
 		const hideDropdowns = (e: MouseEvent) => {
