@@ -24,7 +24,7 @@ const Nav = () => {
 					<HomeIcon />
 					<p className='nav__link-title'>Home</p>
 				</a>
-				<p
+				<div
 					id='create'
 					className='nav__link nav__link--create'
 					tabIndex={0}
@@ -47,7 +47,7 @@ const Nav = () => {
 							Create a board
 						</a>
 					</LinksDropdown>
-				</p>
+				</div>
 				<a href='#' className='nav__link'>
 					<TaskListIcon />
 					<p className='nav__link-title'>Assigned tasks</p>

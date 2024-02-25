@@ -28,7 +28,10 @@ const Header = () => {
 					className={`header__search-btn ${
 						isOpen && 'header__search-btn--active'
 					}`}
-					onClick={() => setIsOpen(true)}
+					onClick={() => {
+						setIsOpen((prev) => !prev);
+						setInputValue('');
+					}}
 				>
 					<SearchIcon />
 				</button>
@@ -41,10 +44,6 @@ const Header = () => {
 					}`}
 					placeholder='Search'
 					onChange={searchHandler}
-					onBlur={() => {
-						setIsOpen(false);
-						setInputValue('');
-					}}
 					value={inputValue}
 				/>
 				<LinksDropdown
