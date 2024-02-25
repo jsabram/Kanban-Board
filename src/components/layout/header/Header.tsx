@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { UiContext } from '../../../context/ui-context';
 import LinksDropdown from '../../reusable/LinksDropdown';
 import SearchIcon from '../../icon-components/SearchIcon';
@@ -49,9 +50,9 @@ const Header = () => {
 				<LinksDropdown
 					className={`results ${uiCtx.searchDropdown && 'results-active'}`}
 				>
-					<a href='#'>Test 1</a>
-					<a href='#'>Test 2</a>
-					<a href='#'>Test 3</a>
+					<Link to='/'>Test 1</Link>
+					<Link to='/'>Test 2</Link>
+					<Link to='/'>Test 3</Link>
 				</LinksDropdown>
 			</div>
 			<div
@@ -70,8 +71,8 @@ const Header = () => {
 							uiCtx.notificationsDropdown && 'notifications-active'
 						}`}
 					>
-						<a href='#'>Test 1</a>
-						<a href='#'>Test 2</a>
+						<Link to='/'>Test 1</Link>
+						<Link to='/'>Test 2</Link>
 					</LinksDropdown>
 				</button>
 				<button
@@ -83,8 +84,8 @@ const Header = () => {
 					<LinksDropdown
 						className={`user ${uiCtx.userDropdown && 'user-active'}`}
 					>
-						<a href='#'>My tasks</a>
-						<a href='#'>Settings</a>
+						<Link to='/assigned-tasks'>My tasks</Link>
+						<Link to='/settings'>Settings</Link>
 					</LinksDropdown>
 				</button>
 			</div>
