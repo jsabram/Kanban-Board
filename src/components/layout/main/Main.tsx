@@ -1,11 +1,9 @@
 import './Main.scss';
 
-const Main = () => {
-	return (
-		<main className='main'>
-			<p>xD</p>
-		</main>
-	);
+import { ChildrenProps } from '../../../types';
+
+const Main: React.FC<ChildrenProps> = ({ children }) => {
+	return <main className='main'>{children}</main>;
 };
 
 export default Main;

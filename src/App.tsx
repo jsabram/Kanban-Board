@@ -1,11 +1,29 @@
 import { useEffect, useContext } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { UiContext } from './context/ui-context';
-import Nav from './components/layout/nav/Nav';
-import Header from './components/layout/header/Header';
-import Main from './components/layout/main/Main';
+import RootPage from './components/pages/RootPage';
+import HomePage from './components/pages/HomePage';
+import SettingsPage from './components/pages/SettingsPage';
 
 const App = () => {
 	const uiCtx = useContext(UiContext);
+
+	const router = createBrowserRouter([
+		{
+			path: '/Kanban-Board',
+			element: <RootPage />,
+			children: [
+				{
+					path: '',
+					element: <HomePage />,
+				},
+				{
+					path: 'settings',
+					element: <SettingsPage />,
+				},
+			],
+		},
+	]);
 
 	useEffect(() => {
 		const hideDropdowns = (e: MouseEvent) => {
@@ -35,13 +53,7 @@ const App = () => {
 		};
 	}, []);
 
-	return (
-		<>
-			<Nav />
-			<Header />
-			<Main />
-		</>
-	);
+	return <RouterProvider router={router} />;
 };
 
 export default App;
