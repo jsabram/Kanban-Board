@@ -9,7 +9,7 @@
 	padding: 0 1rem 1rem;
 	background-color: map-get($colors, c_white);
 	border-right: 1px solid map-get($colors, c_ash);
-    z-index: 20;
+    z-index: 30;
 
 	&__logo {
 		display: none;
