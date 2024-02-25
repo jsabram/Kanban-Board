@@ -1,15 +1,16 @@
-@use '../../../assets/scss/colors.scss' as colors;
-@use '../../../assets/scss/mixins.scss' as mixins;
+@use '../../../assets/scss/colors.scss' as *;
+@use '../../../assets/scss/mixins.scss' as *;
 
 .header {
 	position: fixed;
 	top: 0;
 	right: 0;
-	@include mixins.flexbox(space-between, flex-start, row);
+	@include flexbox(space-between, flex-start, row);
 	width: calc(100vw - 40px - 2rem);
 	padding: 2rem 2rem 1rem;
-	background-color: map-get(colors.$colors, c_white);
-	border-bottom: 1px solid map-get(colors.$colors, c_ash);
+	background-color: map-get($colors, c_white);
+	border-bottom: 1px solid map-get($colors, c_ash);
+	z-index: 20;
 
 	&__search {
 		position: relative;
@@ -17,17 +18,17 @@
 		width: 100%;
 
 		&-btn {
-			@include mixins.flexbox(center, center, column);
-			@include mixins.icon-btn;
+			@include flexbox(center, center, column);
+			@include icon-btn;
 			margin-right: 1rem;
 
 			&--active {
 				.svg-light {
-					fill: map-get(colors.$colors, c_primary_medium);
+					fill: map-get($colors, c_primary_medium);
 				}
 
 				.svg-dark {
-					fill: map-get(colors.$colors, c_primary);
+					fill: map-get($colors, c_primary);
 				}
 			}
 		}
@@ -36,19 +37,19 @@
 			width: 100%;
 			padding: 0 1rem;
 			border: none;
-			border-bottom: 1px solid map-get(colors.$colors, c_ash);
+			border-bottom: 1px solid map-get($colors, c_ash);
 			outline: none;
-			caret-color: map-get(colors.$colors, c_gray_light);
+			caret-color: map-get($colors, c_gray_light);
 			transform: scaleX(0);
 			transform-origin: left;
 			transition: transform 0.3s;
 
 			&:focus {
-				border-color: map-get(colors.$colors, c_gray);
+				border-color: map-get($colors, c_gray);
 			}
 
 			&::placeholder {
-				color: map-get(colors.$colors, c_gray_light);
+				color: map-get($colors, c_gray_light);
 			}
 
 			&--active {
@@ -66,8 +67,8 @@
 
 		&-notifications,
 		&-user {
-			@include mixins.flexbox(center, center, column);
-			@include mixins.icon-btn;
+			@include flexbox(center, center, column);
+			@include icon-btn;
 			position: relative;
 		}
 
@@ -81,7 +82,7 @@
 				display: none;
 				height: 5px;
 				width: 5px;
-				background-color: map-get(colors.$colors, c_red);
+				background-color: map-get($colors, c_red);
 				border-radius: 50%;
 
 				&--active {

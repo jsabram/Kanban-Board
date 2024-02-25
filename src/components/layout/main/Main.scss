@@ -1,0 +1,18 @@
+@use '../../../assets/scss/colors.scss' as *;
+
+.main {
+	position: fixed;
+	top: 57px;
+	right: 0;
+	bottom: 0;
+	left: calc(40px + 2rem);
+	padding: 1rem;
+	background: map-get($colors, c_primary_gradient);
+}
+
+@media screen and (min-width: 978px) {
+	.main {
+		padding: 2.5rem 2rem;
+		left: calc(164px + 4rem);
+	}
+}

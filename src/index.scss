@@ -1,4 +1,4 @@
-@use './assets/scss/colors.scss' as colors;
+@use './assets/scss/colors.scss' as *;
 
 *,
 *::before,
@@ -18,7 +18,7 @@ input::placeholder,
 button {
 	font-family: 'Noto Sans', sans-serif;
 	font-size: 1.4rem;
-	color: map-get(colors.$colors, c_gray);
+	color: map-get($colors, c_gray);
 }
 
 svg {

@@ -1,5 +1,5 @@
-@use '../../../assets/scss/colors.scss' as colors;
-@use '../../../assets/scss/mixins.scss' as mixins;
+@use '../../../assets/scss/colors.scss' as *;
+@use '../../../assets/scss/mixins.scss' as *;
 
 .nav {
 	position: fixed;
@@ -7,8 +7,8 @@
 	bottom: 0;
 	left: 0;
 	padding: 0 1rem 1rem;
-	background-color: map-get(colors.$colors, c_white);
-	border-right: 1px solid map-get(colors.$colors, c_ash);
+	background-color: map-get($colors, c_white);
+	border-right: 1px solid map-get($colors, c_ash);
     z-index: 20;
 
 	&__logo {
@@ -21,13 +21,13 @@
 			font-size: 1.5rem;
 			text-transform: uppercase;
 			letter-spacing: 2px;
-			color: map-get(colors.$colors, c_gray_light);
+			color: map-get($colors, c_gray_light);
 		}
 	}
 
 	&__link {
-		@include mixins.link;
-		@include mixins.flexbox(flex-start, flex-start, row);
+		@include link;
+		@include flexbox(flex-start, flex-start, row);
 		width: 100%;
 		padding: 1rem;
 		margin-block: 1.5rem;
@@ -35,19 +35,19 @@
 		cursor: pointer;
 
 		&:hover {
-			color: map-get(colors.$colors, c_primary);
+			color: map-get($colors, c_primary);
 		}
 
 		&--active {
-			background-color: map-get(colors.$colors, c_primary_light);
-			color: map-get(colors.$colors, c_primary);
+			background-color: map-get($colors, c_primary_light);
+			color: map-get($colors, c_primary);
 
 			.svg-light {
-				fill: map-get(colors.$colors, c_primary_medium);
+				fill: map-get($colors, c_primary_medium);
 			}
 
 			.svg-dark {
-				fill: map-get(colors.$colors, c_primary);
+				fill: map-get($colors, c_primary);
 			}
 		}
 

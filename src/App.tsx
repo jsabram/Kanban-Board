@@ -2,6 +2,7 @@ import { useEffect, useContext } from 'react';
 import { UiContext } from './context/ui-context';
 import Nav from './components/layout/nav/Nav';
 import Header from './components/layout/header/Header';
+import Main from './components/layout/main/Main';
 
 const App = () => {
 	const uiCtx = useContext(UiContext);
@@ -38,6 +39,7 @@ const App = () => {
 		<>
 			<Nav />
 			<Header />
+			<Main />
 		</>
 	);
 };
