@@ -1,9 +1,12 @@
 import { useEffect, useContext } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { UiContext } from './context/ui-context';
 import RootPage from './components/pages/RootPage';
 import HomePage from './components/pages/HomePage';
 import SettingsPage from './components/pages/SettingsPage';
+import Nav from './components/layout/nav/Nav';
+import Header from './components/layout/header/Header';
+import Main from './components/layout/main/Main';
 
 const App = () => {
 	const uiCtx = useContext(UiContext);
@@ -57,14 +60,16 @@ const App = () => {
 	}, []);
 
 	return (
-		<HashRouter basename='/Kanban-Board'>
-			<Routes>
-				<Route path='/' element={<RootPage />}>
-					<Route index element={<HomePage />} />
+		<>
+			<Nav />
+			<Header />
+			<Main>
+				<Routes>
+					<Route path='/' element={<HomePage />} />
 					<Route path='/settings' element={<SettingsPage />} />
-				</Route>
-			</Routes>
-		</HashRouter>
+				</Routes>
+			</Main>
+		</>
 	);
 };
 
