@@ -1,0 +1,66 @@
+@use '../../assets/scss/colors.scss' as *;
+@use '../../assets/scss/mixins.scss' as *;
+
+.create {
+	@include flexbox(flex-start, flex-start, column);
+	max-width: 700px;
+
+	&__label {
+		margin-block-start: 1rem;
+		margin-block-end: 0.5rem;
+		color: map-get($colors, c_gray_light);
+
+		&:first-of-type {
+			margin-block-start: 0;
+		}
+
+		&--asterisk {
+			color: map-get($colors, c_red);
+		}
+	}
+
+	&__input {
+		width: 100%;
+		padding: 0.5rem 1rem;
+		border: 1px solid map-get($colors, c_ash);
+		border-radius: 1rem;
+		outline: none;
+
+		&:focus {
+			border-color: map-get($colors, c_gray);
+		}
+
+		&--error {
+			border-color: map-get($colors, c_red);
+		}
+
+		&--textarea {
+			height: 250px;
+			resize: none;
+		}
+
+		&--select {
+			width: auto;
+			cursor: pointer;
+		}
+	}
+
+	&__error-msg {
+		margin-block-start: 0.2rem;
+		font-size: 1.2rem;
+		color: map-get($colors, c_red);
+	}
+
+	&__btn {
+		display: block;
+		margin: 2rem 0 0 auto;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.create {
+		&__error-msg {
+			font-size: 1.4rem;
+		}
+	}
+}

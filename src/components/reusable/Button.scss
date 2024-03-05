@@ -1,0 +1,17 @@
+@use '../../assets/scss/colors.scss' as *;
+
+.button {
+	padding: 0.8rem 1.6rem;
+	background-color: map-get($colors, c_primary);
+	border: none;
+	outline: none;
+	border-radius: 1rem;
+	color: map-get($colors, c_white);
+	cursor: pointer;
+	transition: background-color 0.3s;
+
+	&:hover,
+	&:focus {
+		background-color: map-get($colors, c_primary_medium);
+	}
+}

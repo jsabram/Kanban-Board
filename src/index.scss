@@ -15,6 +15,8 @@ html {
 body,
 input,
 input::placeholder,
+textarea,
+select,
 button {
 	font-family: 'Noto Sans', sans-serif;
 	font-size: 1.4rem;
@@ -33,6 +35,8 @@ svg {
 	body,
 	input,
 	input::placeholder,
+	textarea,
+	select,
 	button {
 		font-family: 'Noto Sans', sans-serif;
 		font-size: 1.6rem;
