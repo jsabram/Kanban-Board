@@ -13,9 +13,13 @@ export interface ButtonProps {
 	disabled?: boolean;
 }
 
+export interface FormProps extends ChildrenProps {
+	onSubmit: (e: React.FormEvent) => void;
+}
+
 export interface SelectProps {
 	id: string;
 	className: string;
 	options: string[];
-	onBlur?: (event: React.FocusEvent) => void;
+	onBlur?: (e: React.FocusEvent) => void;
 }
