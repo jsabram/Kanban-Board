@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Kanban-Board/static/css/main.a3f7e346.css",
-    "main.js": "/Kanban-Board/static/js/main.c3cecc24.js",
+    "main.css": "/Kanban-Board/static/css/main.acbec1dd.css",
+    "main.js": "/Kanban-Board/static/js/main.0a42c1c4.js",
     "index.html": "/Kanban-Board/index.html",
-    "main.a3f7e346.css.map": "/Kanban-Board/static/css/main.a3f7e346.css.map",
-    "main.c3cecc24.js.map": "/Kanban-Board/static/js/main.c3cecc24.js.map"
+    "main.acbec1dd.css.map": "/Kanban-Board/static/css/main.acbec1dd.css.map",
+    "main.0a42c1c4.js.map": "/Kanban-Board/static/js/main.0a42c1c4.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3f7e346.css",
-    "static/js/main.c3cecc24.js"
+    "static/css/main.acbec1dd.css",
+    "static/js/main.0a42c1c4.js"
   ]
 }
