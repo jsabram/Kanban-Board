@@ -37,6 +37,9 @@ const CreateTask = () => {
 				Assignee <span className='create__label--asterisk'>*</span>
 			</label>
 			<select id='assignee' className='create__input create__input--select'>
+				<option value='0' hidden>
+					-
+				</option>
 				<option value='1'>employee 1</option>
 				<option value='2'>employee 2</option>
 				<option value='3'>employee 3</option>
@@ -45,7 +48,13 @@ const CreateTask = () => {
 			<label className='create__label' htmlFor='project'>
 				Project <span className='create__label--asterisk'>*</span>
 			</label>
-			<select id='project' className='create__input create__input--select  create__input--error'>
+			<select
+				id='project'
+				className='create__input create__input--select  create__input--error'
+			>
+				<option value='0' hidden>
+					-
+				</option>
 				<option value='1'>project 1</option>
 				<option value='2'>project 2</option>
 				<option value='3'>project 3</option>

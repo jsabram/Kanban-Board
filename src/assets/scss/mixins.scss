@@ -1,4 +1,4 @@
-@use './colors.scss' as colors;
+@use './colors.scss' as *;
 
 @mixin flexbox($justify, $align, $direction) {
 	display: flex;
@@ -9,7 +9,7 @@
 
 @mixin link {
 	text-decoration: none;
-	color: map-get(colors.$colors, c_gray);
+	color: map-get($colors, c_gray);
 	transition: color 0.3s;
 }
 
@@ -20,11 +20,66 @@
 
 	&:hover {
 		.svg-light {
-			fill: map-get(colors.$colors, c_primary_medium);
+			fill: map-get($colors, c_primary_medium);
 		}
 
 		.svg-dark {
-			fill: map-get(colors.$colors, c_primary);
+			fill: map-get($colors, c_primary);
 		}
 	}
+}
+
+@mixin form {
+	@include flexbox(flex-start, flex-start, column);
+	max-width: 700px;
+}
+
+@mixin label {
+	margin-block-start: 1rem;
+	margin-block-end: 0.5rem;
+	color: map-get($colors, c_gray_light);
+
+	&:first-of-type {
+		margin-block-start: 0;
+	}
+
+	span {
+		color: map-get($colors, c_red);
+	}
+}
+
+@mixin input {
+	width: 100%;
+	padding: 0.5rem 1rem;
+	border: 1px solid map-get($colors, c_ash);
+	border-radius: 1rem;
+	outline: none;
+
+	&:focus {
+		border-color: map-get($colors, c_gray);
+	}
+}
+
+@mixin input-error {
+	border-color: map-get($colors, c_red);
+}
+
+@mixin error-msg {
+	margin-block-start: 0.2rem;
+	font-size: 1.2rem;
+	color: map-get($colors, c_red);
+
+	@media screen and (min-width: 992px) {
+		font-size: 1.4rem;
+	}
+}
+
+@mixin textarea {
+	height: 250px;
+	resize: none;
+}
+
+@mixin select {
+	width: auto;
+	cursor: pointer;
 }

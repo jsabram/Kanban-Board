@@ -1,10 +1,10 @@
 @use '../../../assets/scss/colors.scss' as *;
 
 .main {
-	position: fixed;
+	position: absolute;
 	top: 57px;
 	right: 0;
-	bottom: 0;
+	min-height: calc(100vh - 57px);
 	left: calc(40px + 2rem);
 	padding: 1rem;
 	background: map-get($colors, c_primary_gradient);
