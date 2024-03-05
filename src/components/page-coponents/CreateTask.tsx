@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
+import { useSubmit } from '../../hooks/useSubmit';
 import Form from '../reusable/Form';
 import Select from '../reusable/Select';
 import Button from '../reusable/Button';
@@ -9,39 +10,18 @@ const dummyAssignees = ['Eric', 'Jessica', 'Bob'];
 const dummyProjects = ['Frontend', 'Backend', 'AI'];
 
 const CreateTask = () => {
-	const [isTitleValid, setIsTitleValid] = useState<boolean | null>(null);
-	const [isAssigneeValid, setIsAssigneeValid] = useState<boolean | null>(null);
-	const [isProjectValid, setIsProjectValid] = useState<boolean | null>(null);
-
 	const titleRef = useRef<HTMLInputElement | null>(null);
 	const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
 	const priorityRef = useRef<HTMLSelectElement | null>(null);
 	const assigneeRef = useRef<HTMLSelectElement | null>(null);
 	const projectRef = useRef<HTMLSelectElement | null>(null);
 
-	const checkValidity = (e: React.FocusEvent) => {
-		const target = e.target as HTMLSelectElement | HTMLInputElement;
-
-		switch (target.id) {
-			case 'title':
-				target.value.trim().length === 0
-					? setIsTitleValid(false)
-					: setIsTitleValid(true);
-				break;
-			case 'assignee':
-				+target.value === 0
-					? setIsAssigneeValid(false)
-					: setIsAssigneeValid(true);
-				break;
-			case 'project':
-				+target.value === 0
-					? setIsProjectValid(false)
-					: setIsProjectValid(true);
-				break;
-			default:
-				break;
-		}
-	};
+	const {
+		isTitleValid,
+		isAssigneeValid,
+		isProjectValid,
+		checkValidity,
+	} = useSubmit();
 
 	const createTask = (e: React.FormEvent) => {
 		e.preventDefault();

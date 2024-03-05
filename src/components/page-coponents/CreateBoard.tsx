@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSubmit } from '../../hooks/useSubmit';
 import Form from '../reusable/Form';
 import Button from '../reusable/Button';
 import RemoveIcon from '../icon-components/RemoveIcon';
@@ -22,8 +23,6 @@ const dummyCollaboratos: Collaborator[] = [
 ];
 
 const CreateBoard = () => {
-	const [isTitleValid, setIsTitleValid] = useState<boolean | null>(null);
-
 	const [availableCollaborators, setAvailableCollaborators] = useState(
 		dummyCollaboratos
 	);
@@ -31,15 +30,7 @@ const CreateBoard = () => {
 		Collaborator[]
 	>([]);
 
-	const checkValidity = (e: React.FocusEvent) => {
-		const target = e.target as HTMLInputElement;
-
-		if (target) {
-			target.value.trim().length === 0
-				? setIsTitleValid(false)
-				: setIsTitleValid(true);
-		}
-	};
+	const { isTitleValid, checkValidity } = useSubmit();
 
 	const addCollaborator = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLSelectElement;
