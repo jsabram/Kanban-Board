@@ -8,6 +8,7 @@
 }
 
 @mixin link {
+	outline-color: map-get($colors, c_primary);
 	text-decoration: none;
 	color: map-get($colors, c_gray);
 	transition: color 0.3s;
@@ -16,6 +17,7 @@
 @mixin icon-btn {
 	background-color: transparent;
 	border: none;
+	outline-color: map-get($colors, c_primary);
 	cursor: pointer;
 
 	&:hover {
@@ -77,9 +79,4 @@
 @mixin textarea {
 	height: 250px;
 	resize: none;
-}
-
-@mixin select {
-	width: auto;
-	cursor: pointer;
 }

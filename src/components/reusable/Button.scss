@@ -14,4 +14,9 @@
 	&:focus {
 		background-color: map-get($colors, c_primary_medium);
 	}
+
+	&:disabled {
+		background-color: map-get($colors, c_gray_light);
+		cursor: not-allowed;
+	}
 }
