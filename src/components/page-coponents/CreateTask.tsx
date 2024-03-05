@@ -4,6 +4,7 @@ import Button from '../reusable/Button';
 
 import './CreateTask.scss';
 
+// dummy data to be replaced
 const priorities = ['Low', 'Medium', 'High'];
 const dummyAssignees = ['Eric', 'Jessica', 'Bob'];
 const dummyProjects = ['Frontend', 'Backend', 'AI'];
@@ -19,7 +20,7 @@ const CreateTask = () => {
 	const assigneeRef = useRef<HTMLSelectElement | null>(null);
 	const projectRef = useRef<HTMLSelectElement | null>(null);
 
-	const checkValue = (e: React.FocusEvent) => {
+	const checkValidity = (e: React.FocusEvent) => {
 		const target = e.target as HTMLSelectElement | HTMLInputElement;
 
 		switch (target.id) {
@@ -71,7 +72,7 @@ const CreateTask = () => {
 				className={`create__input ${
 					isTitleValid === false && 'create__input--error'
 				}`}
-				onBlur={checkValue}
+				onBlur={checkValidity}
 			/>
 			{isTitleValid === false && (
 				<p className='create__error-msg'>Required field</p>
@@ -103,7 +104,7 @@ const CreateTask = () => {
 					isAssigneeValid === false && 'create__input--error'
 				}`}
 				options={dummyAssignees}
-				onBlur={checkValue}
+				onBlur={checkValidity}
 			/>
 			{isAssigneeValid === false && (
 				<p className='create__error-msg'>Required selection</p>
@@ -118,7 +119,7 @@ const CreateTask = () => {
 					isProjectValid === false && 'create__input--error'
 				}`}
 				options={dummyProjects}
-				onBlur={checkValue}
+				onBlur={checkValidity}
 			/>
 			{isProjectValid === false && (
 				<p className='create__error-msg'>Required selection</p>

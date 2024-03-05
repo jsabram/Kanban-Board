@@ -12,3 +12,10 @@ export interface ButtonProps {
 	onClick?: () => void;
 	disabled?: boolean;
 }
+
+export interface SelectProps {
+	id: string;
+	className: string;
+	options: string[];
+	onBlur?: (event: React.FocusEvent) => void;
+}

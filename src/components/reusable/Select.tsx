@@ -1,13 +1,7 @@
 import { forwardRef } from 'react';
+import { SelectProps } from '../../types';
 
 import './Select.scss';
-
-interface SelectProps {
-	id: string;
-	className: string;
-	options: string[];
-	onBlur?: (event: React.FocusEvent) => void;
-}
 
 const Select: React.ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
 	{ id, className, options, onBlur },
