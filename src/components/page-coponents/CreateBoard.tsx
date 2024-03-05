@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useSubmit } from '../../hooks/useSubmit';
 import Form from '../reusable/Form';
 import Button from '../reusable/Button';
@@ -29,6 +29,9 @@ const CreateBoard = () => {
 	const [selectedCollaborators, setSelectedCollaborators] = useState<
 		Collaborator[]
 	>([]);
+
+	const titleRef = useRef<HTMLInputElement | null>(null);
+	const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
 
 	const { isTitleValid, checkValidity } = useSubmit();
 
@@ -68,7 +71,13 @@ const CreateBoard = () => {
 	const createBoard = (e: React.FormEvent) => {
 		e.preventDefault();
 
-		console.log('Board Created!');
+		const board = {
+			title: titleRef.current?.value,
+			descriptionRef: descriptionRef.current?.value,
+			collaborators: selectedCollaborators,
+		};
+
+		console.log(board);
 	};
 
 	return (
@@ -77,8 +86,9 @@ const CreateBoard = () => {
 				Title <span>*</span>
 			</label>
 			<input
-				id='title'
 				type='text'
+				id='title'
+				ref={titleRef}
 				className={`form__input ${
 					isTitleValid === false && 'form__input--error'
 				}`}
@@ -90,6 +100,7 @@ const CreateBoard = () => {
 			<label htmlFor='description'>Description</label>
 			<textarea
 				id='description'
+				ref={descriptionRef}
 				className='form__input  form__input--textarea'
 			></textarea>
 			<label htmlFor='collaborators'>Add collaborators</label>
@@ -116,10 +127,8 @@ const CreateBoard = () => {
 			{selectedCollaborators.length > 0 && (
 				<ul className='collaborators'>
 					{selectedCollaborators.map((person) => (
-						<div className='collaborator'>
-							<li className='collaborator__username' key={person.id}>
-								{person.username}{' '}
-							</li>
+						<div key={person.id} className='collaborator'>
+							<li className='collaborator__username'>{person.username} </li>
 							<button
 								type='button'
 								className='collaborator__remove-btn'
