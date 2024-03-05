@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Form from '../reusable/Form';
 import Button from '../reusable/Button';
+import RemoveIcon from '../icon-components/RemoveIcon';
 
 import './CreateBoard.scss';
 
@@ -21,6 +22,8 @@ const dummyCollaboratos: Collaborator[] = [
 ];
 
 const CreateBoard = () => {
+	const [isTitleValid, setIsTitleValid] = useState<boolean | null>(null);
+
 	const [availableCollaborators, setAvailableCollaborators] = useState(
 		dummyCollaboratos
 	);
@@ -28,22 +31,52 @@ const CreateBoard = () => {
 		Collaborator[]
 	>([]);
 
-	const selectCollaborator = (e: React.ChangeEvent) => {
+	const checkValidity = (e: React.FocusEvent) => {
+		const target = e.target as HTMLInputElement;
+
+		if (target) {
+			target.value.trim().length === 0
+				? setIsTitleValid(false)
+				: setIsTitleValid(true);
+		}
+	};
+
+	const addCollaborator = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLSelectElement;
 
-		const selectedPerson = availableCollaborators.find(
+		const collaborator = availableCollaborators.find(
 			(el) => el.id === +target.value
 		);
 
-		if (selectedPerson) {
-			setSelectedCollaborators([...selectedCollaborators, selectedPerson]);
+		updateCollaborators(collaborator!, 'add');
+	};
+
+	const removeCollaborator = (id: number) => {
+		const collaborator = selectedCollaborators.find((el) => el.id === id);
+
+		updateCollaborators(collaborator!, 'remove');
+	};
+
+	const updateCollaborators = (
+		collaborator: Collaborator,
+		action: 'add' | 'remove'
+	) => {
+		if (action === 'add') {
+			setSelectedCollaborators([...selectedCollaborators, collaborator]);
 			setAvailableCollaborators(
-				availableCollaborators.filter((el) => el.id !== selectedPerson.id)
+				availableCollaborators.filter((el) => el.id !== collaborator.id)
+			);
+		} else {
+			setAvailableCollaborators([...availableCollaborators, collaborator]);
+			setSelectedCollaborators(
+				selectedCollaborators.filter((el) => el.id !== collaborator.id)
 			);
 		}
 	};
 
 	const createBoard = (e: React.FormEvent) => {
+		e.preventDefault();
+
 		console.log('Board Created!');
 	};
 
@@ -52,17 +85,26 @@ const CreateBoard = () => {
 			<label htmlFor='title'>
 				Title <span>*</span>
 			</label>
-			<input id='title' type='text' className='form__input' />
+			<input
+				id='title'
+				type='text'
+				className={`form__input ${
+					isTitleValid === false && 'form__input--error'
+				}`}
+				onBlur={checkValidity}
+			/>
+			{isTitleValid === false && (
+				<p className='form__error-msg'>Required field</p>
+			)}
 			<label htmlFor='description'>Description</label>
 			<textarea
 				id='description'
 				className='form__input  form__input--textarea'
 			></textarea>
 			<label htmlFor='collaborators'>Add collaborators</label>
-			{/* consider refactoring this select element to the reusable component */}
 			<select
 				className='form__input form__input--select'
-				onChange={selectCollaborator}
+				onChange={addCollaborator}
 				disabled={availableCollaborators.length === 0}
 			>
 				{availableCollaborators.length > 0 ? (
@@ -81,13 +123,28 @@ const CreateBoard = () => {
 				)}
 			</select>
 			{selectedCollaborators.length > 0 && (
-				<ul>
+				<ul className='collaborators'>
 					{selectedCollaborators.map((person) => (
-						<li key={person.id}>{person.username}</li>
+						<div className='collaborator'>
+							<li className='collaborator__username' key={person.id}>
+								{person.username}{' '}
+							</li>
+							<button
+								type='button'
+								className='collaborator__remove-btn'
+								onClick={() => removeCollaborator(person.id)}
+							>
+								<RemoveIcon />
+							</button>
+						</div>
 					))}
 				</ul>
 			)}
-			<Button className='form__btn' text='Create Board' />
+			<Button
+				className='form__btn'
+				text='Create Board'
+				disabled={!isTitleValid}
+			/>
 		</Form>
 	);
 };

@@ -1,0 +1,40 @@
+@use '../../assets/scss/colors.scss' as *;
+@use '../../assets/scss/mixins.scss' as *;
+
+.collaborators {
+	display: flex;
+	flex-wrap: wrap;
+	margin-block-start: 2rem;
+	list-style-type: none;
+}
+
+.collaborator {
+    @include flexbox(space-between, flex-start, row);
+	margin: 0 1rem 1rem 0;
+	padding: 0.8rem 1.6rem;
+    background-color: map-get($colors, c_ash);
+	border-radius: 1rem;
+
+	&__username {
+		margin-right: 1rem;
+		color: map-get($colors, c_gray);
+	}
+
+	&__remove-btn {
+		background: transparent;
+		border: none;
+		outline: none;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			.svg-dark {
+				fill: map-get($colors, c_red);
+			}
+
+			.svg-light {
+				fill: map-get($colors, c_red_medium);
+			}
+		}
+	}
+}
