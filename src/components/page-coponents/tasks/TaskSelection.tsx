@@ -47,7 +47,11 @@ const TaskSelection = () => {
 		if (target.value === 'Show all') {
 			setAllTasks(sharedTasks);
 		} else {
-			setAllTasks(sharedTasks.filter((task) => task.project === target.value));
+			setAllTasks(
+				sharedTasks.filter(
+					(task) => task.project === target.value.toLowerCase()
+				)
+			);
 		}
 	};
 
