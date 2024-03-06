@@ -1,0 +1,9 @@
+@use '../../../assets/scss/colors.scss' as *;
+@use '../../../assets/scss/mixins.scss' as *;
+
+.tasks {
+	&__label {
+		margin-right: 2rem;
+		@include label;
+	}
+}

@@ -30,3 +30,20 @@
 		}
 	}
 }
+
+@mixin select {
+	width: auto;
+	cursor: pointer;
+	padding: 0.5rem 1rem;
+	border: 1px solid map-get($colors, c_ash);
+	border-radius: 1rem;
+	outline: none;
+
+	&:focus {
+		border-color: map-get($colors, c_gray);
+	}
+}
+
+@mixin label {
+	color: map-get($colors, c_gray_light);
+}

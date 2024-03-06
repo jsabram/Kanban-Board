@@ -1,4 +1,4 @@
-import BoardSelection from '../page-coponents/BoardSelection';
+import BoardSelection from '../page-coponents/boards/BoardSelection';
 
 const BoardsSelectionPage = () => {
 	return <BoardSelection />;

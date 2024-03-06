@@ -5,8 +5,8 @@
 	position: fixed;
 	top: 0;
 	right: 0;
+	left: calc(40px + 2rem);
 	@include flexbox(space-between, flex-start, row);
-	width: calc(100vw - 40px - 2rem);
 	padding: 2rem 2rem 1rem;
 	background-color: map-get($colors, c_white);
 	border-bottom: 1px solid map-get($colors, c_ash);
@@ -95,7 +95,7 @@
 
 @media screen and (min-width: 992px) {
 	.header {
-		width: calc(100vw - 164px - 4rem);
+		left: calc(164px + 4rem);
 		padding: 2rem;
 
 		&__search {

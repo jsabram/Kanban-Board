@@ -52,7 +52,7 @@ const App = () => {
 					<Route path='/' element={<HomePage />} />
 					<Route path='/create-task' element={<CreateTaskPage />} />
 					<Route path='/create-board' element={<CreateBoardPage />} />
-					<Route path='/assigned-tasks' element={<TaskSelectionPage />} />
+					<Route path='/tasks' element={<TaskSelectionPage />} />
 					<Route path='/boards' element={<BoardsSelectionPage />} />
 					<Route path='/settings' element={<SettingsPage />} />
 				</Routes>

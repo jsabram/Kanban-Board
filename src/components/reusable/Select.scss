@@ -1,0 +1,5 @@
+@use '../../assets/scss/mixins.scss' as *;
+
+.select {
+	@include select;
+}

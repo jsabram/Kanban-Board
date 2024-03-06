@@ -71,13 +71,13 @@ const Nav = () => {
 					</LinksDropdown>
 				</div>
 				<NavLink
-					to='/assigned-tasks'
+					to='/tasks'
 					className={({ isActive }) =>
 						isActive ? 'nav__link nav__link--active' : 'nav__link'
 					}
 				>
 					<TaskListIcon />
-					<p className='nav__link-title'>Assigned tasks</p>
+					<p className='nav__link-title'>Tasks</p>
 				</NavLink>
 				<NavLink
 					to='/boards'

@@ -1,4 +1,4 @@
-import CreateTask from '../page-coponents/CreateTask';
+import CreateTask from '../page-coponents/tasks/CreateTask';
 
 const CreateTaskPage = () => {
 	return <CreateTask />;

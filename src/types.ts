@@ -19,7 +19,7 @@ export interface FormProps extends ChildrenProps {
 
 export interface SelectProps {
 	id: string;
-	className: string;
+	className?: string;
 	options: string[];
 	onBlur?: (e: React.FocusEvent) => void;
 }
