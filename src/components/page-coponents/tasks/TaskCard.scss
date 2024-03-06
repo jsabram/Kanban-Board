@@ -45,9 +45,16 @@
 		}
 	}
 
-	&-id {
-		font-size: 1.1rem;
-		font-weight: 400;
+	&-header {
+		display: flex;
+		font-size: 1.4rem;
+
+		&--id {
+			margin-right: 0.5rem;
+			padding-right: 0.5rem;
+			border-right: 1px solid map-get($colors, c_gray);
+			font-weight: 400;
+		}
 	}
 
 	&-title {
@@ -57,6 +64,7 @@
 
 	&-info {
 		font-size: 1.2rem;
+		line-height: 1.5;
 
 		span {
 			font-weight: bold;

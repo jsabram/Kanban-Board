@@ -2,6 +2,10 @@
 @use '../../../assets/scss/mixins.scss' as *;
 
 .tasks {
+	&--assigned {
+		margin-block-end: 2rem;
+	}
+	
 	&__label {
 		margin-right: 2rem;
 		@include label;

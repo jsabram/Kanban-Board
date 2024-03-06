@@ -22,4 +22,28 @@ export interface SelectProps {
 	className?: string;
 	options: string[];
 	onBlur?: (e: React.FocusEvent) => void;
+	onChange?: (e: React.ChangeEvent) => void;
+}
+
+export interface TaskObject {
+	id: string;
+	priority: string;
+	title: string;
+	description: string;
+	status: string;
+	project: string;
+	assignee: string;
+}
+
+export interface TaskListProps {
+	tasks: TaskObject[];
+}
+
+export interface TaskCardProps {
+	priority: string;
+	id: string;
+	title: string;
+	status: string;
+	assignee: string;
+	project: string;
 }

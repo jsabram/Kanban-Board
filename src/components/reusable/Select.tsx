@@ -4,11 +4,17 @@ import { SelectProps } from '../../types';
 import './Select.scss';
 
 const Select: React.ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
-	{ id, className, options, onBlur },
+	{ id, className, options, onBlur, onChange },
 	ref
 ) => {
 	return (
-		<select id={id} ref={ref} className={`select ${className}`} onBlur={onBlur}>
+		<select
+			id={id}
+			ref={ref}
+			className={`select ${className}`}
+			onBlur={onBlur}
+			onChange={onChange}
+		>
 			<option value={0} hidden>
 				-
 			</option>

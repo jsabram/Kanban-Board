@@ -1,34 +1,20 @@
+import { TaskListProps } from '../../../types';
 import TaskCard from './TaskCard';
 
-import './TaskList.scss';
-
-const TaskList = () => {
+const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
 	return (
 		<div className='task-list'>
-			<h3 className='task-list__priority'>Low</h3>
-			<div className='task-list__container'>
+			{tasks.map((task, idx) => (
 				<TaskCard
-					priority='low'
-					id='item-1234'
-					title='Delete the folder'
-					status='To do'
-					assignee='username'
+					key={idx}
+					priority={task.priority}
+					id={task.id}
+					title={task.title}
+					status={task.status}
+					assignee={task.assignee}
+					project={task.project}
 				/>
-				<TaskCard
-					priority='medium'
-					id='item-1234'
-					title='Rename the file'
-					status='To do'
-					assignee='username'
-				/>
-				<TaskCard
-					priority='high'
-					id='item-1234'
-					title='Refactor the JavaScript file in the ABD repo'
-					status='To do'
-					assignee='username'
-				/>
-			</div>
+			))}
 		</div>
 	);
 };
