@@ -88,6 +88,7 @@ const CreateBoard = () => {
 				<label htmlFor='title'>
 					Title <span>*</span>
 				</label>
+				{/* add max length constraint */}
 				<input
 					type='text'
 					id='title'
@@ -101,6 +102,7 @@ const CreateBoard = () => {
 					<p className='form__error-msg'>Required field</p>
 				)}
 				<label htmlFor='description'>Description</label>
+				{/* consider markdown */}
 				<textarea
 					id='description'
 					ref={descriptionRef}

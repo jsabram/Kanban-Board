@@ -61,6 +61,7 @@ const CreateTask = () => {
 					<p className='form__error-msg'>Required field</p>
 				)}
 				<label htmlFor='description'>Description</label>
+				{/* consider markdown */}
 				<textarea
 					id='description'
 					ref={descriptionRef}
