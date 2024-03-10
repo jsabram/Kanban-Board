@@ -1,0 +1,31 @@
+@use '../../../../assets/scss/colors.scss' as *;
+
+.search-result {
+	text-align: left;
+
+	&__id,
+	&__assignee {
+		font-size: 1rem;
+	}
+
+	&__id {
+		margin-right: 0.5rem;
+		padding-right: 0.5rem;
+		border-right: 1px solid map-get($colors, c_gray);
+	}
+
+	&:hover {
+		.search-result__id {
+			border-color: map-get($colors, c_primary);
+		}
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.search-result {
+		&__id,
+		&__assignee {
+			font-size: 1.2rem;
+		}
+	}
+}

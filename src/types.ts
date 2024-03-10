@@ -58,6 +58,17 @@ export interface TaskCardProps {
 	project: string;
 }
 
+export interface SearchResultsProps {
+	isDropdownActive: boolean;
+	tasks: TaskObject[];
+}
+
+export interface SearchResultProps {
+	taskTitle: string;
+	taskId: string;
+	taskAssignee: string;
+}
+
 // Other types
 
 export type Rules = {

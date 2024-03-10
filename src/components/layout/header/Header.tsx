@@ -1,25 +1,39 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UiContext } from '../../../context/ui-context';
+import SearchResults from './search/SearchResults';
 import LinksDropdown from '../../reusable/LinksDropdown';
 import SearchIcon from '../../icon-components/SearchIcon';
 import BellIcon from '../../icon-components/BellIcon';
 import UserIcon from '../../icon-components/UserIcon';
+
+// dummy data
+import { dummyTasks } from '../../../dummyData';
 
 import './Header.scss';
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [inputValue, setInputValue] = useState('');
+	const [resultTasks, setResultTasks] = useState(dummyTasks);
 
 	const uiCtx = useContext(UiContext);
 
 	const searchHandler = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLInputElement;
-		const searchedValue = target.value;
+		const searchedValue = target.value.toLowerCase();
 
 		uiCtx.openDropdown('search');
+
+		const filteredArr = dummyTasks.filter(
+			(task) =>
+				task.title.toLowerCase().includes(searchedValue) ||
+				task.id.toLowerCase().includes(searchedValue) ||
+				task.id.toLowerCase().includes(searchedValue)
+		);
+
 		setInputValue(searchedValue);
+		setResultTasks(filteredArr);
 	};
 
 	return (
@@ -47,13 +61,11 @@ const Header = () => {
 					onChange={searchHandler}
 					value={inputValue}
 				/>
-				<LinksDropdown
-					className={`results ${uiCtx.searchDropdown && 'results-active'}`}
-				>
-					<Link to='/'>Test 1</Link>
-					<Link to='/'>Test 2</Link>
-					<Link to='/'>Test 3</Link>
-				</LinksDropdown>
+				{/* Search results component */}
+				<SearchResults
+					isDropdownActive={uiCtx.searchDropdown}
+					tasks={resultTasks}
+				/>
 			</div>
 			<div
 				className={`header__controls ${isOpen && 'header__controls--hidden'}`}
