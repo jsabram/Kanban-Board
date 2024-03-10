@@ -49,15 +49,15 @@ const TaskSelection = () => {
 		} else {
 			setAllTasks(
 				sharedTasks.filter(
-					(task) => task.project === target.value.toLowerCase()
+					(task) => task.project.toLowerCase() === target.value.toLowerCase()
 				)
 			);
 		}
 	};
 
 	return (
-		<>
-			<div className='tasks tasks--assigned'>
+		<section className='tasks'>
+			<div className='tasks__assigned'>
 				<PageHeading>Assigned tasks</PageHeading>
 				<label htmlFor='priority' className='tasks__label'>
 					Priority
@@ -65,7 +65,7 @@ const TaskSelection = () => {
 				<Select id='project' options={priorities} onChange={filterByPriority} />
 				<TaskList tasks={sortByPriority(assignedTasks)} />
 			</div>
-			<div className='tasks tasks-all'>
+			<div className='tasks__all'>
 				<PageHeading>All tasks</PageHeading>
 				<label htmlFor='project' className='tasks__label'>
 					Project
@@ -73,7 +73,7 @@ const TaskSelection = () => {
 				<Select id='project' options={projects} onChange={filterByProject} />
 				<TaskList tasks={sortByPriority(allTasks)} />
 			</div>
-		</>
+		</section>
 	);
 };
 
