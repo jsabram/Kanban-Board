@@ -1,7 +1,13 @@
+import PageHeading from '../reusable/PageHeading';
+
 import './Settings.scss';
 
 const Settings = () => {
-	return <div>Settings</div>;
+	return (
+		<section>
+			<PageHeading>Settings</PageHeading>
+		</section>
+	);
 };
 
 export default Settings;

@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UiContext } from '../../../context/ui-context';
 import SearchResults from './search/SearchResults';
+import Notifications from './notifications/Notifications';
 import LinksDropdown from '../../reusable/LinksDropdown';
 import SearchIcon from '../../icon-components/SearchIcon';
 import BellIcon from '../../icon-components/BellIcon';
@@ -9,6 +10,7 @@ import UserIcon from '../../icon-components/UserIcon';
 
 // dummy data
 import { dummyTasks } from '../../../dummyData';
+// import { dummyNotifications } from '../../../dummyData';
 
 import './Header.scss';
 
@@ -16,6 +18,7 @@ const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 	const [resultTasks, setResultTasks] = useState(dummyTasks);
+	// const [notifications, setNotifications] = useState(dummyNotifications);
 
 	const uiCtx = useContext(UiContext);
 
@@ -29,12 +32,28 @@ const Header = () => {
 			(task) =>
 				task.title.toLowerCase().includes(searchedValue) ||
 				task.id.toLowerCase().includes(searchedValue) ||
-				task.id.toLowerCase().includes(searchedValue)
+				task.assignee.toLowerCase().includes(searchedValue)
 		);
 
 		setInputValue(searchedValue);
 		setResultTasks(filteredArr);
 	};
+
+	// const markAllAsRead = () => {
+	// 	const updatedNotifications = notifications.map((notif) => {
+	// 		return {
+	// 			...notif,
+	// 			isNew: false,
+	// 		};
+	// 	});
+
+	// 	if (uiCtx.notificationsDropdown) {
+	// 		setNotifications(updatedNotifications);
+	// 	} else {
+	// 		return;
+	// 	}
+	// 	console.log(notifications);
+	// };
 
 	return (
 		<header className='header'>
@@ -73,19 +92,18 @@ const Header = () => {
 				<button
 					id='notifications'
 					className='header__controls-notifications'
-					onClick={() => uiCtx.openDropdown('notifications')}
+					onClick={() => {
+						uiCtx.openDropdown('notifications');
+						// markAllAsRead();
+					}}
 				>
 					{/* header__controls-notifications-alert--active > to be added when there are undread notifications */}
 					<span className='header__controls-notifications-alert'></span>
 					<BellIcon />
-					<LinksDropdown
-						className={`notifications ${
-							uiCtx.notificationsDropdown && 'notifications-active'
-						}`}
-					>
-						<Link to='/'>Test 1</Link>
-						<Link to='/'>Test 2</Link>
-					</LinksDropdown>
+					{/* <Notifications
+						isDropdownActive={uiCtx.notificationsDropdown}
+						// notifications={notifications}
+					/> */}
 				</button>
 				<button
 					id='user'

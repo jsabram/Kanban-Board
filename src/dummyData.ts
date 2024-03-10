@@ -90,3 +90,26 @@ export const dummyTasks = [
 		assignee: 'user',
 	},
 ];
+
+export const dummyNotifications = [
+	{
+		id: 'notif-1',
+		body: `Jane has assigned you 'task-2'.`,
+		isNew: true,
+	},
+	{
+		id: 'notif-2',
+		body: `You've been added to the Frontend project.`,
+		isNew: true,
+	},
+	{
+		id: 'notif-3',
+		body: `Joe has closed 'task-7'.`,
+		isNew: true,
+	},
+	{
+		id: 'notif-4',
+		body: `Josh mentioned you in a comment in 'task-8'.`,
+		isNew: true,
+	},
+];

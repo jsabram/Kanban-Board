@@ -28,16 +28,6 @@ export interface SelectProps {
 	onChange?: (e: React.ChangeEvent) => void;
 }
 
-export interface TaskObject {
-	id: string;
-	priority: string;
-	title: string;
-	description: string;
-	status: string;
-	project: string;
-	assignee: string;
-}
-
 export interface TaskListProps {
 	tasks: TaskObject[];
 	priorityId: string;
@@ -71,7 +61,23 @@ export interface SearchResultProps {
 
 // Other types
 
-export type Rules = {
+export interface TaskObject {
+	id: string;
+	priority: string;
+	title: string;
+	description: string;
+	status: string;
+	project: string;
+	assignee: string;
+}
+
+export interface RulesObject {
 	priority: string;
 	project: string;
 };
+
+export interface NotificationObject {
+	id: string,
+	body: string,
+	isNew: boolean
+}

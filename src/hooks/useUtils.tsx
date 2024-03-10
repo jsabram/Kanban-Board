@@ -1,9 +1,9 @@
-import { TaskObject, Rules } from '../types';
+import { TaskObject, RulesObject } from '../types';
 
 export const useUtils = () => {
 	const applyTaskFilter = (
 		tasks: TaskObject[],
-		newRules: Rules
+		newRules: RulesObject
 	) => {
 		let filteredArr: TaskObject[] = [];
 

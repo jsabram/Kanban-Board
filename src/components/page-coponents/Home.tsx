@@ -1,7 +1,12 @@
+import PageHeading from '../reusable/PageHeading';
+
 import './Home.scss';
 
 const Home = () => {
-	return <div>Home</div>;
+	return <section>
+		{/* Replace @user with user name */}
+		<PageHeading>Hello, @user!</PageHeading>
+	</section>;
 };
 
 export default Home;
