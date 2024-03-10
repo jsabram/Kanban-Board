@@ -1,0 +1,23 @@
+@use '../../../assets/scss/colors.scss' as *;
+@use '../../../assets/scss/mixins.scss' as *;
+
+.board-card {
+    @include link-card;
+	height: 250px;
+	margin-block-end: 2rem;
+	padding: 2rem;
+	background: map-get($colors, c_primary_gradient_dark);
+	color: map-get($colors, c_white);
+
+	&__title {
+		font-size: 3.5rem;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.board-card {
+		height: 300px;
+		width: 300px;
+		margin: 0;
+	}
+}

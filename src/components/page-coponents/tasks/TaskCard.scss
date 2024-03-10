@@ -1,22 +1,15 @@
 @use '../../../assets/scss/colors.scss' as *;
+@use '../../../assets/scss/mixins.scss' as *;
 
 .task__card {
+	@include link-card;
 	position: relative;
-	display: block;
 	max-width: 700px;
 	margin-block: 1rem;
 	padding: 1rem 2rem;
 	background-color: map-get($colors, c_white_medium);
-	border-radius: 1rem;
-	outline-color: map-get($colors, c_primary);
 	color: map-get($colors, c_gray);
-	text-decoration: none;
-	transition: transform 0.3s;
 	overflow: hidden;
-
-	&:hover {
-		transform: scale(1.02);
-	}
 
 	&::before {
 		position: absolute;

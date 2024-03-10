@@ -9,6 +9,12 @@ $colors: (
 			rgba(255, 255, 255, 1) 65%,
 			rgba(116, 228, 181, 0.26) 100%
 		),
+	c_primary_gradient_dark:
+		linear-gradient(
+			110deg,
+			rgba(116, 228, 181, 1) 19%,
+			rgba(223, 246, 236, 1) 87%
+		),
 	c_white: #fff,
 	c_white_medium: #f3f3f3,
 	c_ash: #ebebeb,

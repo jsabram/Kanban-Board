@@ -1,0 +1,22 @@
+import { Link } from 'react-router-dom';
+
+import './BoardCard.scss';
+
+interface BoardCardProps {
+	projectTitle: string;
+	activeTasks: number;
+}
+
+const BoardCard: React.FC<BoardCardProps> = ({ projectTitle, activeTasks }) => {
+	return (
+		<Link to='' className='board-card'>
+			<h3 className='board-card__title'>{projectTitle}</h3>
+			<p>
+				<span>Active tasks: </span>
+				{activeTasks}
+			</p>
+		</Link>
+	);
+};
+
+export default BoardCard;

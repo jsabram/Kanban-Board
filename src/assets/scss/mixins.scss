@@ -48,8 +48,21 @@
 	color: map-get($colors, c_gray_light);
 }
 
-@mixin noResultsFound {
+@mixin msg {
 	font-size: 1.4rem;
 	color: map-get($colors, c_gray_light);
 	text-align: center;
+}
+
+@mixin link-card {
+	display: block;
+	border-radius: 1rem;
+	outline-color: map-get($colors, c_primary);
+	box-shadow: 9px 8px 24px -12px rgba(205, 210, 214, 1);
+	text-decoration: none;
+	transition: transform 0.3s;
+
+	&:hover {
+		transform: scale(1.02);
+	}
 }

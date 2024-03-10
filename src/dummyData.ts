@@ -1,4 +1,4 @@
-export const dummyProjects = ['Frontend', 'Backend', 'AI'];
+export const dummyProjects = ['Frontend', 'Backend', 'AI', 'Cloud', 'DevOps'];
 export const dummyPriorities = ['Low', 'Medium', 'High'];
 export const dummyTaskStatuses = [
 	'To do',
@@ -85,7 +85,7 @@ export const dummyTasks = [
 		priority: 'medium',
 		title: 'Clean up code in the index.html file',
 		description: '',
-		status: 'To do',
+		status: 'to do',
 		project: 'Frontend',
 		assignee: 'user',
 	},
