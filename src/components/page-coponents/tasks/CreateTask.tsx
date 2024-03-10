@@ -72,6 +72,7 @@ const CreateTask = () => {
 					ref={priorityRef}
 					className='form__input form__input--select'
 					options={priorities}
+					defaultOption='-'
 				/>
 				<label htmlFor='assignee'>
 					Assignee <span>*</span>
@@ -83,6 +84,7 @@ const CreateTask = () => {
 						isAssigneeValid === false && 'form__input--error'
 					}`}
 					options={dummyAssignees}
+					defaultOption='-'
 					onBlur={checkValidity}
 				/>
 				{isAssigneeValid === false && (
@@ -98,6 +100,7 @@ const CreateTask = () => {
 						isProjectValid === false && 'form__input--error'
 					}`}
 					options={dummyProjects}
+					defaultOption='-'
 					onBlur={checkValidity}
 				/>
 				{isProjectValid === false && (

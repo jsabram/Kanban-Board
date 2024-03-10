@@ -1,3 +1,5 @@
+// Component types
+
 export interface ChildrenProps {
 	children: React.ReactNode;
 }
@@ -21,6 +23,7 @@ export interface SelectProps {
 	id: string;
 	className?: string;
 	options: string[];
+	defaultOption: string;
 	onBlur?: (e: React.FocusEvent) => void;
 	onChange?: (e: React.ChangeEvent) => void;
 }
@@ -37,6 +40,13 @@ export interface TaskObject {
 
 export interface TaskListProps {
 	tasks: TaskObject[];
+	priorityId: string;
+	priorityOptions: string[];
+	priorityOnChange: (e: React.ChangeEvent) => void;
+	projectId: string;
+	projectOptions: string[];
+	projectOnChange: (e: React.ChangeEvent) => void;
+	defaultOption: string;
 }
 
 export interface TaskCardProps {
@@ -47,3 +57,10 @@ export interface TaskCardProps {
 	assignee: string;
 	project: string;
 }
+
+// Other types
+
+export type Rules = {
+	priority: string;
+	project: string;
+};

@@ -47,3 +47,9 @@
 @mixin label {
 	color: map-get($colors, c_gray_light);
 }
+
+@mixin noResultsFound {
+	font-size: 1.4rem;
+	color: map-get($colors, c_gray_light);
+	text-align: center;
+}

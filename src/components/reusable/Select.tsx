@@ -4,7 +4,7 @@ import { SelectProps } from '../../types';
 import './Select.scss';
 
 const Select: React.ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
-	{ id, className, options, onBlur, onChange },
+	{ id, className, options, defaultOption, onBlur, onChange },
 	ref
 ) => {
 	return (
@@ -16,7 +16,7 @@ const Select: React.ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
 			onChange={onChange}
 		>
 			<option value={0} hidden>
-				-
+				{defaultOption}
 			</option>
 			{options.map((option, idx) => (
 				<option key={idx} value={option}>

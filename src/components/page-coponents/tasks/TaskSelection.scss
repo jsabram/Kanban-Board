@@ -1,14 +1,6 @@
-@use '../../../assets/scss/colors.scss' as *;
-@use '../../../assets/scss/mixins.scss' as *;
-
 .tasks {
 	&__assigned {
 		margin-block-end: 2rem;
-	}
-
-	&__label {
-		margin-right: 2rem;
-		@include label;
 	}
 }
 

@@ -80,4 +80,13 @@ export const dummyTasks = [
 		project: 'AI',
 		assignee: 'user',
 	},
+	{
+		id: 'task-8',
+		priority: 'medium',
+		title: 'Clean up code in the index.html file',
+		description: '',
+		status: 'To do',
+		project: 'Frontend',
+		assignee: 'user',
+	},
 ];
