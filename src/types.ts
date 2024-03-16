@@ -76,6 +76,19 @@ export interface TaskObject {
 	assignee: string;
 }
 
+export interface ProjectObject {
+	projectName: string;
+	projectId: string;
+	projectDescription: string;
+	collaborators: string[];
+	tasks: TaskObject[];
+}
+
+export interface UserObject {
+	name: string;
+	username: string;
+}
+
 export interface RulesObject {
 	priority: string;
 	project: string;
@@ -85,4 +98,11 @@ export interface NotificationObject {
 	id: string;
 	body: string;
 	isNew: boolean;
+}
+
+// Redux
+
+export interface ProjectsSliceObject {
+	projects: ProjectObject[];
+	users: UserObject[];
 }

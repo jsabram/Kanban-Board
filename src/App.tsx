@@ -1,5 +1,7 @@
 import { useEffect, useContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setInitialData } from './store/projectsSlice';
 import { UiContext } from './context/ui-context';
 import RootPage from './pages/RootPage';
 import HomePage from './pages/HomePage';
@@ -10,6 +12,9 @@ import TaskPage from './pages/TaskPage';
 import BoardsSelectionPage from './pages/BoardsSelectionPage';
 import BoardPage from './pages/BoardPage';
 import SettingsPage from './pages/SettingsPage';
+
+// to be replaced with backend data once its implemented
+import { projectsData, usersData } from './data';
 
 const router = createBrowserRouter([
 	{
@@ -32,6 +37,8 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+	const dispatch = useDispatch();
+
 	const uiCtx = useContext(UiContext);
 
 	// Hiding dropdowns if the user clicks elsewhere
@@ -62,6 +69,17 @@ const App = () => {
 			window.removeEventListener('click', hideDropdowns);
 		};
 	}, [uiCtx]);
+
+	// dispatching data in redux state
+	// to be replaced with fetching data from backend
+	useEffect(() => {
+		const initialData = {
+			projects: projectsData,
+			users: usersData,
+		};
+
+		dispatch(setInitialData(initialData));
+	}, []);
 
 	return <RouterProvider router={router} />;
 };
