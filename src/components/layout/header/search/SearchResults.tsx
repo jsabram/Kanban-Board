@@ -14,7 +14,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
 			className={`results ${isDropdownActive && 'results-active'}`}
 		>
 			{tasks.length > 0 ? (
-				tasks.map((task, idx) => (
+				tasks.slice(0, 5).map((task, idx) => ( // limiting to only 5 search results
 					<SearchResult
 						key={idx}
 						taskTitle={task.title}

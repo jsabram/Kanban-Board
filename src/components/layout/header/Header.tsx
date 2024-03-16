@@ -1,4 +1,5 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
+import { useAppSelector } from '../../../store/typedHooks';
 import { Link } from 'react-router-dom';
 import { UiContext } from '../../../context/ui-context';
 import SearchResults from './search/SearchResults';
@@ -7,17 +8,20 @@ import LinksDropdown from '../../reusable/LinksDropdown';
 import SearchIcon from '../../icon-components/SearchIcon';
 import BellIcon from '../../icon-components/BellIcon';
 import UserIcon from '../../icon-components/UserIcon';
+import { TaskObject } from '../../../types';
 
 // dummy data
-import { dummyTasks } from '../../../dummyData';
 // import { dummyNotifications } from '../../../dummyData';
 
 import './Header.scss';
 
 const Header = () => {
+	const projects = useAppSelector((state) => state.projectsData.projects);
+
 	const [isOpen, setIsOpen] = useState(false);
 	const [inputValue, setInputValue] = useState('');
-	const [resultTasks, setResultTasks] = useState(dummyTasks);
+	const [allTasks, setAllTasks] = useState<TaskObject[]>([]);
+	const [resultTasks, setResultTasks] = useState<TaskObject[]>([]);
 	// const [notifications, setNotifications] = useState(dummyNotifications);
 
 	const uiCtx = useContext(UiContext);
@@ -28,7 +32,7 @@ const Header = () => {
 
 		uiCtx.openDropdown('search');
 
-		const filteredArr = dummyTasks.filter(
+		const filteredArr = allTasks.filter(
 			(task) =>
 				task.title.toLowerCase().includes(searchedValue) ||
 				task.id.toLowerCase().includes(searchedValue) ||
@@ -54,6 +58,16 @@ const Header = () => {
 	// 	}
 	// 	console.log(notifications);
 	// };
+
+	useEffect(() => {
+		for (let i = 0; i < projects.length; i++) {
+			const tasks = projects[i].tasks;
+
+			setAllTasks((prevState) => {
+				return [...prevState, ...tasks];
+			});
+		}
+	}, [projects]);
 
 	return (
 		<header className='header'>

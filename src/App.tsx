@@ -79,7 +79,7 @@ const App = () => {
 		};
 
 		dispatch(setInitialData(initialData));
-	}, []);
+	}, [dispatch]);
 
 	return <RouterProvider router={router} />;
 };

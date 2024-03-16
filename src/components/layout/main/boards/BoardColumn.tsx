@@ -4,11 +4,9 @@ import { BoardColumnProps } from '../../../../types';
 import './BoardColumn.scss';
 
 const BoardColumn: React.FC<BoardColumnProps> = ({ statusName, tasks }) => {
-	const statusTasks = tasks
-		? tasks.filter(
-				(task) => task.status.toLowerCase() === statusName.toLowerCase()
-		  )
-		: [];
+	const statusTasks = tasks.filter(
+		(task) => task.status.toLowerCase() === statusName.toLowerCase()
+	);
 
 	return (
 		<div className='board__col'>
