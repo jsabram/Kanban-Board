@@ -48,8 +48,6 @@
 		]
 	},
 	"devDependencies": {
-		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-		"gh-pages": "^6.1.1"
-	},
-	"homepage": "https://jsabram.github.io/Kanban-Board"
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+	}
 }
