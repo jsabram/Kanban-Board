@@ -22,16 +22,8 @@ const router = createBrowserRouter([
 			{ path: 'create-task', element: <CreateTaskPage /> },
 			{ path: 'create-board', element: <CreateBoardPage /> },
 			{ path: 'tasks', element: <TaskSelectionPage /> },
-			{
-				path: 'boards',
-				element: <BoardsSelectionPage />,
-				children: [
-					{
-						path: ':boardId',
-						element: <BoardPage />,
-					},
-				],
-			},
+			{ path: 'boards', element: <BoardsSelectionPage /> },
+			{ path: 'boards/:boardId', element: <BoardPage /> },
 			{ path: 'settings', element: <SettingsPage /> },
 		],
 	},
@@ -71,22 +63,6 @@ const App = () => {
 
 	return (
 		<RouterProvider router={router} />
-		// <>
-		// 	<Nav />
-		// 	<Header />
-		// 	<Main>
-		// 		{/* <Routes>
-		// 			<Route path='/' element={<HomePage />} />
-		// 			<Route path='/create-task' element={<CreateTaskPage />} />
-		// 			<Route path='/create-board' element={<CreateBoardPage />} />
-		// 			<Route path='/tasks' element={<TaskSelectionPage />} />
-		// 			<Route path='/boards' element={<BoardsSelectionPage />} />
-
-		// 			<Route path='/Frontend' element={<BoardPage />} />
-		// 			<Route path='/settings' element={<SettingsPage />} />
-		// 		</Routes> */}
-		// 	</Main>
-		// </>
 	);
 };
 
