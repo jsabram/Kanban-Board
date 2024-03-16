@@ -1,15 +1,33 @@
 import { useEffect, useContext } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { UiContext } from './context/ui-context';
-import Nav from './components/layout/nav/Nav';
-import Header from './components/layout/header/Header';
-import Main from './components/layout/main/Main';
+import RootPage from './components/pages/RootPage';
 import HomePage from './components/pages/HomePage';
 import CreateTaskPage from './components/pages/CreateTaskPage';
 import CreateBoardPage from './components/pages/CreateBoardPage';
 import TaskSelectionPage from './components/pages/TaskSelectionPage';
 import BoardsSelectionPage from './components/pages/BoardsSelectionPage';
+import BoardPage from './components/pages/BoardPage';
 import SettingsPage from './components/pages/SettingsPage';
+
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <RootPage />,
+		children: [
+			{
+				index: true,
+				element: <HomePage />,
+			},
+			{ path: 'create-task', element: <CreateTaskPage /> },
+			{ path: 'create-board', element: <CreateBoardPage /> },
+			{ path: 'tasks', element: <TaskSelectionPage /> },
+			{ path: 'boards', element: <BoardsSelectionPage /> },
+			{path: 'boards/Frontend', element: <BoardPage />}, // to be changed to a dynamic path with board id
+			{ path: 'settings', element: <SettingsPage /> },
+		],
+	},
+]);
 
 const App = () => {
 	const uiCtx = useContext(UiContext);
@@ -44,20 +62,23 @@ const App = () => {
 	}, []);
 
 	return (
-		<>
-			<Nav />
-			<Header />
-			<Main>
-				<Routes>
-					<Route path='/' element={<HomePage />} />
-					<Route path='/create-task' element={<CreateTaskPage />} />
-					<Route path='/create-board' element={<CreateBoardPage />} />
-					<Route path='/tasks' element={<TaskSelectionPage />} />
-					<Route path='/boards' element={<BoardsSelectionPage />} />
-					<Route path='/settings' element={<SettingsPage />} />
-				</Routes>
-			</Main>
-		</>
+		<RouterProvider router={router} />
+		// <>
+		// 	<Nav />
+		// 	<Header />
+		// 	<Main>
+		// 		{/* <Routes>
+		// 			<Route path='/' element={<HomePage />} />
+		// 			<Route path='/create-task' element={<CreateTaskPage />} />
+		// 			<Route path='/create-board' element={<CreateBoardPage />} />
+		// 			<Route path='/tasks' element={<TaskSelectionPage />} />
+		// 			<Route path='/boards' element={<BoardsSelectionPage />} />
+
+		// 			<Route path='/Frontend' element={<BoardPage />} />
+		// 			<Route path='/settings' element={<SettingsPage />} />
+		// 		</Routes> */}
+		// 	</Main>
+		// </>
 	);
 };
 

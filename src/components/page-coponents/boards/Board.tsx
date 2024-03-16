@@ -1,7 +1,13 @@
+import PageHeading from '../../reusable/PageHeading';
+
 import './Board.scss';
 
 const Board = () => {
-	return <div>Board</div>;
+	return (
+		<section>
+			<PageHeading>Frontend project board</PageHeading>
+		</section>
+	);
 };
 
 export default Board;

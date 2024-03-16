@@ -35,7 +35,7 @@ const Header = () => {
 				task.assignee.toLowerCase().includes(searchedValue)
 		);
 
-		setInputValue(searchedValue);
+		setInputValue(target.value);
 		setResultTasks(filteredArr);
 	};
 
@@ -80,7 +80,6 @@ const Header = () => {
 					onChange={searchHandler}
 					value={inputValue}
 				/>
-				{/* Search results component */}
 				<SearchResults
 					isDropdownActive={uiCtx.searchDropdown}
 					tasks={resultTasks}

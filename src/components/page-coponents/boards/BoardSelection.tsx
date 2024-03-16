@@ -40,6 +40,7 @@ const BoardSelection = () => {
 				{boards.map((project, idx) => (
 					<BoardCard
 						key={idx}
+						path={project}
 						projectTitle={project}
 						activeTasks={
 							dummyTasks.filter(
