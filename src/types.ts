@@ -61,7 +61,7 @@ export interface SearchResultProps {
 
 export interface BoardColumnProps {
 	statusName: string;
-	tasks: TaskObject[];
+	tasks: TaskObject[]
 }
 
 // Other types

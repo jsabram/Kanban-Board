@@ -26,15 +26,16 @@ const BoardSelection = () => {
 	return (
 		<section className='boards'>
 			<PageHeading>Your boards</PageHeading>
-			<p className='boards__msg'>
-				Select a tile to open a project.
-			</p>
+			<p className='boards__msg'>Select a tile to open a project.</p>
 			<label htmlFor='project' className='boards__label'>
 				Project:
 			</label>
 			<Select
 				id='project'
-				options={['Show all', ...projects.map(project => project.projectName)]}
+				options={[
+					'Show all',
+					...projects.map((project) => project.projectName),
+				]}
 				defaultOption='Show all'
 				onChange={selectBoard}
 			/>
