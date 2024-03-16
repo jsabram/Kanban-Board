@@ -12,7 +12,7 @@ import SettingsPage from './components/pages/SettingsPage';
 
 const router = createBrowserRouter([
 	{
-		path: '/',
+		path: '',
 		element: <RootPage />,
 		children: [
 			{
