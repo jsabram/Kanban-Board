@@ -59,7 +59,7 @@ const App = () => {
 		return () => {
 			window.removeEventListener('click', hideDropdowns);
 		};
-	}, []);
+	}, [uiCtx]);
 
 	return (
 		<RouterProvider router={router} />

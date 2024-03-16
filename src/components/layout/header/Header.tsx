@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UiContext } from '../../../context/ui-context';
 import SearchResults from './search/SearchResults';
-import Notifications from './notifications/Notifications';
+// import Notifications from './notifications/Notifications';
 import LinksDropdown from '../../reusable/LinksDropdown';
 import SearchIcon from '../../icon-components/SearchIcon';
 import BellIcon from '../../icon-components/BellIcon';
