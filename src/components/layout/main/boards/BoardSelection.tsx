@@ -1,25 +1,25 @@
 import { useState } from 'react';
+import { useAppSelector } from '../../../../store/typedHooks';
 import PageHeading from '../../../reusable/PageHeading';
 import BoardCard from './BoardCard';
 import Select from '../../../reusable/Select';
 
-// dummy data
-import { dummyProjects } from '../../../../dummyData';
-import { dummyTasks } from '../../../../dummyData';
-
 import './BoardSelection.scss';
 
 const BoardSelection = () => {
-	const [boards, setBoards] = useState(dummyProjects);
+	const projects = useAppSelector((state) => state.projectsData.projects);
+
+	const [displayedProjects, setDisplayedProjects] = useState(projects);
 
 	const selectBoard = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLSelectElement;
 
 		target.value === 'Show all'
-			? setBoards(dummyProjects)
-			: setBoards(
-					dummyProjects.filter(
-						(project) => project.toLowerCase() === target.value.toLowerCase()
+			? setDisplayedProjects(projects)
+			: setDisplayedProjects(
+					projects.filter(
+						(project) =>
+							project.projectName.toLowerCase() === target.value.toLowerCase()
 					)
 			  );
 	};
@@ -27,28 +27,26 @@ const BoardSelection = () => {
 		<section className='boards'>
 			<PageHeading>Your boards</PageHeading>
 			<p className='boards__msg'>
-				Select a kanban board to open its detailed view
+				Select a tile to open a project.
 			</p>
 			<label htmlFor='project' className='boards__label'>
 				Project:
 			</label>
 			<Select
 				id='project'
-				options={['Show all', ...dummyProjects]}
+				options={['Show all', ...projects.map(project => project.projectName)]}
 				defaultOption='Show all'
 				onChange={selectBoard}
 			/>
 			<div className='boards__cards'>
-				{boards.map((project, idx) => (
+				{displayedProjects.map((project, idx) => (
 					<BoardCard
 						key={idx}
-						path={project}
-						projectTitle={project}
+						path={project.projectId}
+						projectTitle={project.projectName}
 						activeTasks={
-							dummyTasks.filter(
-								(task) =>
-									task.project.toLowerCase() === project.toLowerCase() &&
-									task.status !== 'done'
+							project.tasks.filter(
+								(task) => task.status.toLowerCase() !== 'done'
 							).length
 						}
 					/>
