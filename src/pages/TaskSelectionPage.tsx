@@ -1,4 +1,4 @@
-import TaskSelection from '../page-coponents/tasks/TaskSelection';
+import TaskSelection from '../components/layout/main/tasks/TaskSelection';
 
 const TaskSelectionPage = () => {
 	return <TaskSelection />;

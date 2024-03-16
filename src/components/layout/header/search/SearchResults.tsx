@@ -8,7 +8,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
 	isDropdownActive,
 	tasks,
 }) => {
-	console.log(tasks);
+	
 	return (
 		<LinksDropdown
 			className={`results ${isDropdownActive && 'results-active'}`}

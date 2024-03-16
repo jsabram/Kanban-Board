@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import Nav from '../layout/nav/Nav';
-import Header from '../layout/header/Header';
-import Main from '../layout/main/Main';
+import Nav from '../components/layout/nav/Nav';
+import Header from '../components/layout/header/Header';
+import Main from '../components/layout/main/Main';
 
 const RootPage = () => {
 	return (

@@ -1,0 +1,33 @@
+@use '../../../../assets/scss/colors.scss' as *;
+
+.board__col {
+	background-color: map-get($colors, c_ash_light);
+	border-radius: 1rem;
+
+	&-title {
+		padding: 1rem 2rem;
+		font-size: 1.4rem;
+		font-weight: bold;
+		border-bottom: 1px solid map-get($colors, c_gray_light);
+
+		&--amount {
+			font-weight: 400;
+		}
+	}
+
+	&-tasks {
+		min-height: 100px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.board__col {
+		flex-basis: 48%;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.board__col {
+		max-width: 350px;
+	}
+}

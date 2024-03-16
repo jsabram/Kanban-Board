@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useUtils } from '../../../hooks/useUtils';
-import { TaskObject } from '../../../types';
-import PageHeading from '../../reusable/PageHeading';
+import { useUtils } from '../../../../hooks/useUtils';
+import { TaskObject } from '../../../../types';
+import PageHeading from '../../../reusable/PageHeading';
 import TaskList from './TaskList';
 
 // dummy data
-import { dummyPriorities } from '../../../dummyData';
-import { dummyProjects } from '../../../dummyData';
-import { dummyTasks } from '../../../dummyData';
+import { dummyPriorities } from '../../../../dummyData';
+import { dummyProjects } from '../../../../dummyData';
+import { dummyTasks } from '../../../../dummyData';
 
 import './TaskSelection.scss';
 

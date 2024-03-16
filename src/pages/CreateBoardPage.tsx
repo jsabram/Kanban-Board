@@ -1,4 +1,4 @@
-import CreateBoard from '../page-coponents/boards/CreateBoard';
+import CreateBoard from '../components/layout/main/boards/CreateBoard';
 
 const CreateBoardPage = () => {
 	return <CreateBoard />;

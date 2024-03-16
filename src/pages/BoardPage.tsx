@@ -1,4 +1,4 @@
-import Board from '../page-coponents/boards/Board';
+import Board from '../components/layout/main/boards/Board';
 
 const BoardPage = () => {
 	return <Board />;

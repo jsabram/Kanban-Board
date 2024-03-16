@@ -1,5 +1,5 @@
-@use '../../../assets/scss/colors.scss' as *;
-@use '../../../assets/scss/mixins.scss' as *;
+@use '../../../../assets/scss/colors.scss' as *;
+@use '../../../../assets/scss/mixins.scss' as *;
 
 .task__card {
 	@include link-card;
@@ -8,8 +8,17 @@
 	margin-block: 1rem;
 	padding: 1rem 2rem;
 	background-color: map-get($colors, c_white_medium);
+	border: 1px solid transparent;
+	border-left: none;
 	color: map-get($colors, c_gray);
 	overflow: hidden;
+	transition: transform 0.3s, background-color 0.3s, border-color 0.3s;
+
+	&:hover {
+		background-color: map-get($colors, c_white);
+		border-color: map-get($colors, c_white_medium);
+		transform: scale(1.02);
+	}
 
 	&::before {
 		position: absolute;

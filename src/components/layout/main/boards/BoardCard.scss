@@ -1,5 +1,5 @@
-@use '../../../assets/scss/colors.scss' as *;
-@use '../../../assets/scss/mixins.scss' as *;
+@use '../../../../assets/scss/colors.scss' as *;
+@use '../../../../assets/scss/mixins.scss' as *;
 
 .board-card {
     @include link-card;
@@ -8,6 +8,11 @@
 	padding: 2rem;
 	background: map-get($colors, c_primary_gradient_dark);
 	color: map-get($colors, c_white);
+	transition: transform 0.3s;
+
+	&:hover {
+		transform: scale(1.02);
+	}
 
 	&__title {
 		font-size: 3.5rem;

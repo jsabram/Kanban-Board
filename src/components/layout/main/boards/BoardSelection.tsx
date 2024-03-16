@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import PageHeading from '../../reusable/PageHeading';
+import PageHeading from '../../../reusable/PageHeading';
 import BoardCard from './BoardCard';
-import Select from '../../reusable/Select';
+import Select from '../../../reusable/Select';
 
 // dummy data
-import { dummyProjects } from '../../../dummyData';
-import { dummyTasks } from '../../../dummyData';
+import { dummyProjects } from '../../../../dummyData';
+import { dummyTasks } from '../../../../dummyData';
 
 import './BoardSelection.scss';
 
@@ -29,7 +29,9 @@ const BoardSelection = () => {
 			<p className='boards__msg'>
 				Select a kanban board to open its detailed view
 			</p>
-			<label htmlFor='project' className='boards__label'>Project:</label>
+			<label htmlFor='project' className='boards__label'>
+				Project:
+			</label>
 			<Select
 				id='project'
 				options={['Show all', ...dummyProjects]}

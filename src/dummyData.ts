@@ -2,7 +2,6 @@ export const dummyProjects = ['Frontend', 'Backend', 'AI', 'Cloud', 'DevOps'];
 export const dummyPriorities = ['Low', 'Medium', 'High'];
 export const dummyTaskStatuses = [
 	'To do',
-	'Researching',
 	'In progress',
 	'Under review',
 	'Blocked',
@@ -45,7 +44,7 @@ export const dummyTasks = [
 		priority: 'low',
 		title: 'Remove dummyData.ts file from the project repository',
 		description: '',
-		status: 'researching',
+		status: 'in progress',
 		project: 'backend',
 		assignee: 'John',
 	},

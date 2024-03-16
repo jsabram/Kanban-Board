@@ -60,9 +60,4 @@
 	outline-color: map-get($colors, c_primary);
 	box-shadow: 9px 8px 24px -12px rgba(205, 210, 214, 1);
 	text-decoration: none;
-	transition: transform 0.3s;
-
-	&:hover {
-		transform: scale(1.02);
-	}
 }

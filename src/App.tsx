@@ -1,14 +1,15 @@
 import { useEffect, useContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { UiContext } from './context/ui-context';
-import RootPage from './components/pages/RootPage';
-import HomePage from './components/pages/HomePage';
-import CreateTaskPage from './components/pages/CreateTaskPage';
-import CreateBoardPage from './components/pages/CreateBoardPage';
-import TaskSelectionPage from './components/pages/TaskSelectionPage';
-import BoardsSelectionPage from './components/pages/BoardsSelectionPage';
-import BoardPage from './components/pages/BoardPage';
-import SettingsPage from './components/pages/SettingsPage';
+import RootPage from './pages/RootPage';
+import HomePage from './pages/HomePage';
+import CreateTaskPage from './pages/CreateTaskPage';
+import CreateBoardPage from './pages/CreateBoardPage';
+import TaskSelectionPage from './pages/TaskSelectionPage';
+import TaskPage from './pages/TaskPage';
+import BoardsSelectionPage from './pages/BoardsSelectionPage';
+import BoardPage from './pages/BoardPage';
+import SettingsPage from './pages/SettingsPage';
 
 const router = createBrowserRouter([
 	{
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
 			{ path: 'create-task', element: <CreateTaskPage /> },
 			{ path: 'create-board', element: <CreateBoardPage /> },
 			{ path: 'tasks', element: <TaskSelectionPage /> },
+			{ path: 'tasks/:taskId', element: <TaskPage /> },
 			{ path: 'boards', element: <BoardsSelectionPage /> },
 			{ path: 'boards/:boardId', element: <BoardPage /> },
 			{ path: 'settings', element: <SettingsPage /> },
@@ -61,9 +63,7 @@ const App = () => {
 		};
 	}, [uiCtx]);
 
-	return (
-		<RouterProvider router={router} />
-	);
+	return <RouterProvider router={router} />;
 };
 
 export default App;

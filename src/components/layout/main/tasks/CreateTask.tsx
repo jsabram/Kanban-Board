@@ -1,9 +1,9 @@
 import { useRef } from 'react';
-import { useSubmit } from '../../../hooks/useSubmit';
-import PageHeading from '../../reusable/PageHeading';
-import Form from '../../reusable/Form';
-import Select from '../../reusable/Select';
-import Button from '../../reusable/Button';
+import { useSubmit } from '../../../../hooks/useSubmit';
+import PageHeading from '../../../reusable/PageHeading';
+import Form from '../../../reusable/Form';
+import Select from '../../../reusable/Select';
+import Button from '../../../reusable/Button';
 
 // dummy data to be replaced
 const priorities = ['Low', 'Medium', 'High'];

@@ -13,8 +13,9 @@ const BoardCard: React.FC<BoardCardProps> = ({
 	path,
 	activeTasks,
 }) => {
+
 	return (
-		<Link to={`${path}`} className='board-card'>
+		<Link to={`${path.toLowerCase()}`} className='board-card'>
 			<h3 className='board-card__title'>{projectTitle}</h3>
 			<p className='board-card__tasks'>
 				Active tasks:&nbsp;

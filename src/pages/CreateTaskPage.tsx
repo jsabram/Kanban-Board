@@ -1,4 +1,4 @@
-import CreateTask from '../page-coponents/tasks/CreateTask';
+import CreateTask from '../components/layout/main/tasks/CreateTask';
 
 const CreateTaskPage = () => {
 	return <CreateTask />;

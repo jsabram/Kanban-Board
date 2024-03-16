@@ -1,0 +1,18 @@
+.board {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+	.board {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.board {
+		flex-wrap: nowrap;
+	}
+}

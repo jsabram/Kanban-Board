@@ -41,7 +41,7 @@ export interface TaskListProps {
 
 export interface TaskCardProps {
 	priority: string;
-	id: string;
+	taskId: string;
 	title: string;
 	status: string;
 	assignee: string;
@@ -59,6 +59,11 @@ export interface SearchResultProps {
 	taskAssignee: string;
 }
 
+export interface BoardColumnProps {
+	statusName: string;
+	tasks: TaskObject[];
+}
+
 // Other types
 
 export interface TaskObject {
@@ -74,10 +79,10 @@ export interface TaskObject {
 export interface RulesObject {
 	priority: string;
 	project: string;
-};
+}
 
 export interface NotificationObject {
-	id: string,
-	body: string,
-	isNew: boolean
+	id: string;
+	body: string;
+	isNew: boolean;
 }

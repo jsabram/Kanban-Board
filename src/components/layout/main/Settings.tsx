@@ -1,4 +1,4 @@
-import PageHeading from '../reusable/PageHeading';
+import PageHeading from '../../reusable/PageHeading';
 
 import './Settings.scss';
 

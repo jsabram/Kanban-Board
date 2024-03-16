@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
-import { useSubmit } from '../../../hooks/useSubmit';
-import PageHeading from '../../reusable/PageHeading';
-import Form from '../../reusable/Form';
-import Button from '../../reusable/Button';
-import RemoveIcon from '../../icon-components/RemoveIcon';
+import { useSubmit } from '../../../../hooks/useSubmit';
+import PageHeading from '../../../reusable/PageHeading';
+import Form from '../../../reusable/Form';
+import Button from '../../../reusable/Button';
+import RemoveIcon from '../../../icon-components/RemoveIcon';
 
 import './CreateBoard.scss';
 

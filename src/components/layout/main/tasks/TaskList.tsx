@@ -1,5 +1,5 @@
-import { TaskListProps } from '../../../types';
-import Select from '../../reusable/Select';
+import { TaskListProps } from '../../../../types';
+import Select from '../../../reusable/Select';
 import TaskCard from './TaskCard';
 
 import './TaskList.scss';
@@ -46,7 +46,7 @@ const TaskList: React.FC<TaskListProps> = ({
 						<TaskCard
 							key={idx}
 							priority={task.priority}
-							id={task.id}
+							taskId={task.id}
 							title={task.title}
 							status={task.status}
 							assignee={task.assignee}
