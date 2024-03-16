@@ -22,8 +22,16 @@ const router = createBrowserRouter([
 			{ path: 'create-task', element: <CreateTaskPage /> },
 			{ path: 'create-board', element: <CreateBoardPage /> },
 			{ path: 'tasks', element: <TaskSelectionPage /> },
-			{ path: 'boards', element: <BoardsSelectionPage /> },
-			{path: 'boards/Frontend', element: <BoardPage />}, // to be changed to a dynamic path with board id
+			{
+				path: 'boards',
+				element: <BoardsSelectionPage />,
+				children: [
+					{
+						path: ':boardId',
+						element: <BoardPage />,
+					},
+				],
+			},
 			{ path: 'settings', element: <SettingsPage /> },
 		],
 	},
