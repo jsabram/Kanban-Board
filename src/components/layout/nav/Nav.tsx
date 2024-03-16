@@ -19,13 +19,13 @@ const Nav = () => {
 
 	return (
 		<nav className='nav'>
-			<NavLink to='/' className='nav__logo'>
+			<NavLink to='' className='nav__logo'>
 				<LogoIcon />
 			</NavLink>
 			<div className='nav__links'>
 				<h3 className='nav__links-heading'>Overview</h3>
 				<NavLink
-					to='/'
+					to=''
 					className={({ isActive }) =>
 						isActive ? 'nav__link nav__link--active' : 'nav__link'
 					}
@@ -37,8 +37,8 @@ const Nav = () => {
 				<div
 					id='create'
 					className={
-						location.pathname === '/create-task' ||
-						location.pathname === '/create-board'
+						location.pathname === 'create-task' ||
+						location.pathname === 'create-board'
 							? 'nav__link nav__link--create nav__link--active'
 							: 'nav__link nav__link--create'
 					}
@@ -71,7 +71,7 @@ const Nav = () => {
 					</LinksDropdown>
 				</div>
 				<NavLink
-					to='/tasks'
+					to='tasks'
 					className={({ isActive }) =>
 						isActive ? 'nav__link nav__link--active' : 'nav__link'
 					}
@@ -80,7 +80,7 @@ const Nav = () => {
 					<p className='nav__link-title'>Tasks</p>
 				</NavLink>
 				<NavLink
-					to='/boards'
+					to='boards'
 					className={({ isActive }) =>
 						isActive ? 'nav__link nav__link--active' : 'nav__link'
 					}
@@ -89,7 +89,7 @@ const Nav = () => {
 					<p className='nav__link-title'>Kanban boards</p>
 				</NavLink>
 				<NavLink
-					to='/settings'
+					to='settings'
 					className={({ isActive }) =>
 						isActive ? 'nav__link nav__link--active' : 'nav__link'
 					}
