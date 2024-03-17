@@ -24,9 +24,9 @@ export interface SelectProps {
 	className?: string;
 	options: string[];
 	defaultOption?: string;
+	value?: string
 	onBlur?: (e: React.FocusEvent) => void;
 	onChange?: (e: React.ChangeEvent) => void;
-	value?: string
 }
 
 export interface TaskListProps {
