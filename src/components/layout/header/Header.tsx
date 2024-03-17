@@ -20,7 +20,7 @@ const Header = () => {
 
 	const [isOpen, setIsOpen] = useState(false);
 	const [inputValue, setInputValue] = useState('');
-	const [allTasks, setAllTasks] = useState<TaskObject[]>([]);
+	const [projectsTasks, setProjectsTasks] = useState<TaskObject[]>([]);
 	const [resultTasks, setResultTasks] = useState<TaskObject[]>([]);
 	// const [notifications, setNotifications] = useState(dummyNotifications);
 
@@ -32,7 +32,7 @@ const Header = () => {
 
 		uiCtx.openDropdown('search');
 
-		const filteredArr = allTasks.filter(
+		const filteredArr = projectsTasks.filter(
 			(task) =>
 				task.title.toLowerCase().includes(searchedValue) ||
 				task.id.toLowerCase().includes(searchedValue) ||
@@ -63,7 +63,7 @@ const Header = () => {
 		for (let i = 0; i < projects.length; i++) {
 			const tasks = projects[i].tasks;
 
-			setAllTasks((prevState) => {
+			setProjectsTasks((prevState) => {
 				return [...prevState, ...tasks];
 			});
 		}

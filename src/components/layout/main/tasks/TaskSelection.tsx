@@ -1,90 +1,55 @@
-import { useState } from 'react';
+import { useAppSelector } from '../../../../store/typedHooks';
 import { useUtils } from '../../../../hooks/useUtils';
-import { TaskObject } from '../../../../types';
+import { TaskObject, TaskStatuses } from '../../../../types';
 import PageHeading from '../../../reusable/PageHeading';
 import TaskList from './TaskList';
 
-// dummy data
-import { dummyPriorities } from '../../../../dummyData';
-import { dummyProjects } from '../../../../dummyData';
-import { dummyTasks } from '../../../../dummyData';
+import {
+	priorities as prioritiesData,
+	taskStatuses,
+	usersData,
+} from '../../../../data';
 
 import './TaskSelection.scss';
 
-const priorities = ['Show all', ...dummyPriorities];
-const projects = ['Show all', ...dummyProjects];
-
 const TaskSelection = () => {
-	// tasks assigned to the user & with status different than 'done'
-	// all tasks with status different than 'done'
-	const userTasks = dummyTasks.filter(
-		(task) => task.assignee === 'user' && task.status !== 'done'
-	);
-	const sharedTasks = dummyTasks.filter((task) => task.status !== 'done');
+	const projects = useAppSelector((state) => state.projectsData.projects);
 
-	// state for rendering filtered lists dynamically
-	const [assignedTasks, setAssignedTasks] = useState<TaskObject[]>(userTasks);
-	const [allTasks, setAllTasks] = useState<TaskObject[]>(sharedTasks);
+	// Extracting tasks that are still active
+	const allTasksArr = ([] as TaskObject[])
+		.concat(...projects.map((project) => project.tasks))
+		.filter((task) => task.status.toLowerCase() !== TaskStatuses.DONE);
+	const userTasksArr = allTasksArr.filter((task) => task.assignee === 'videl'); // Assignee to be changed to the user
 
-	const [assignedRules, setAssignedRules] = useState({
-		priority: 'show all',
-		project: 'show all',
-	});
+	const { sortByPriority, capitalize } = useUtils();
 
-	const [allRules, setAllRules] = useState({
-		priority: 'show all',
-		project: 'show all',
-	});
-
-	const { applyTaskFilter, sortByPriority } = useUtils();
-
-	const filterTasks = (e: React.ChangeEvent) => {
-		const target = e.target as HTMLSelectElement;
-
-		const value = target.value.toLowerCase();
-		const filter = target.id.includes('priority') ? 'priority' : 'project';
-
-		const isListTypeAssigned = target.id.includes('assigned');
-
-		const tasks = isListTypeAssigned ? userTasks : sharedTasks;
-		const newRules = isListTypeAssigned
-			? { ...assignedRules, [filter]: value }
-			: { ...allRules, [filter]: value };
-
-		const filteredArr = applyTaskFilter(tasks, newRules);
-
-		isListTypeAssigned
-			? setAssignedTasks(filteredArr)
-			: setAllTasks(filteredArr);
-		isListTypeAssigned ? setAssignedRules(newRules) : setAllRules(newRules);
-	};
+	// Defining available Select element options
+	const projectsNames = projects.map((project) => project.projectName);
+	const priorityNames = prioritiesData.map((priority) => capitalize(priority));
+	const statusNames = taskStatuses.map((status) => capitalize(status));
+	const assigneeNames = usersData.map((user) => user.username);
 
 	return (
 		<section className='tasks'>
 			<div className='tasks__assigned'>
 				<PageHeading>Assigned tasks</PageHeading>
 				<TaskList
-					tasks={sortByPriority(assignedTasks)}
-					priorityId='priority-assigned'
-					priorityOptions={priorities}
-					priorityOnChange={filterTasks}
-					projectId='project-assigned'
-					projectOptions={projects}
-					projectOnChange={filterTasks}
-					defaultOption='Show all'
+					tasks={sortByPriority(userTasksArr)}
+					priorityOptions={priorityNames}
+					projectOptions={projectsNames}
+					statusOptions={statusNames}
+					listType='assigned'
 				/>
 			</div>
 			<div className='tasks__all'>
 				<PageHeading>All tasks</PageHeading>
 				<TaskList
-					tasks={sortByPriority(allTasks)}
-					priorityId='priority-all'
-					priorityOptions={priorities}
-					priorityOnChange={filterTasks}
-					projectId='project-all'
-					projectOptions={projects}
-					projectOnChange={filterTasks}
-					defaultOption='Show all'
+					tasks={sortByPriority(allTasksArr)}
+					priorityOptions={priorityNames}
+					projectOptions={projectsNames}
+					statusOptions={statusNames}
+					assigneeOptions={assigneeNames}
+					listType='all'
 				/>
 			</div>
 		</section>

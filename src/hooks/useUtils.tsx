@@ -1,35 +1,36 @@
-import { TaskObject, RulesObject } from '../types';
+import { TaskObject, FiltersObject } from '../types';
 
 export const useUtils = () => {
-	const applyTaskFilter = (
-		tasks: TaskObject[],
-		newRules: RulesObject
-	) => {
-		let filteredArr: TaskObject[] = [];
+	const applyTaskFilter = (tasks: TaskObject[], appliedFilters: FiltersObject) => {
+		const filteredResults = tasks.filter((task) => {
+			if (
+				appliedFilters.priority.length > 0 &&
+				!appliedFilters.priority.includes(task.priority.toLowerCase())
+			) {
+				return false;
+			}
+			if (
+				appliedFilters.status.length > 0 &&
+				!appliedFilters.status.includes(task.status.toLowerCase())
+			) {
+				return false;
+			}
+			if (
+				appliedFilters.project.length > 0 &&
+				!appliedFilters.project.includes(task.project.toLowerCase())
+			) {
+				return false;
+			}
+			if (
+				appliedFilters.assignee.length > 0 &&
+				!appliedFilters.assignee.includes(task.assignee.toLowerCase())
+			) {
+				return false;
+			}
+			return true;
+		});
 
-		if (Object.values(newRules).every((el) => el === 'show all')) {
-			filteredArr = tasks;
-		} else if (Object.values(newRules).some((el) => el === 'show all')) {
-			const ruleIdx = Object.values(newRules).indexOf('show all');
-			const ruleKey = Object.keys(newRules)[ruleIdx];
-
-			filteredArr =
-				ruleKey !== 'priority'
-					? tasks.filter(
-							(task) => task.priority.toLowerCase() === newRules.priority
-					  )
-					: tasks.filter(
-							(task) => task.project.toLowerCase() === newRules.project
-					  );
-		} else {
-			filteredArr = tasks.filter(
-				(task) =>
-					task.priority.toLowerCase() === newRules.priority &&
-					task.project.toLowerCase() === newRules.project
-			);
-		}
-
-		return filteredArr;
+		return filteredResults;
 	};
 
 	const sortByPriority = (tasks: TaskObject[]) => {

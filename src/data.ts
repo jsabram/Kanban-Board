@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import { TaskStatuses } from './types';
 
 enum Priorities {
 	LOW = 'low',
@@ -7,14 +8,6 @@ enum Priorities {
 }
 
 export const priorities = [Priorities.LOW, Priorities.MEDIUM, Priorities.HIGH];
-
-enum TaskStatuses {
-	TO_DO = 'To do',
-	IN_PROGRESS = 'In progress',
-	UNDER_REVIEW = 'Under review',
-	BLOCKED = 'Blocked',
-	DONE = 'Done',
-}
 
 export const taskStatuses = [
 	TaskStatuses.TO_DO,
@@ -60,7 +53,7 @@ export const usersData = [
 enum Projects {
 	FRONTEND = 'frontend',
 	BACKEND = 'backend',
-	UX_UI = 'ux_ui',
+	UXUI = 'uxui',
 	AI = 'ai',
 	QA = 'qa',
 }
@@ -80,7 +73,7 @@ export const projectsData = [
 				description:
 					'There are some unnecessary comments left in the Header.tsx file that should be removed.',
 				status: TaskStatuses.TO_DO,
-				project: Projects.FRONTEND,
+				project: 'Frontend',
 				assignee: 'bulma',
 			},
 			{
@@ -89,7 +82,7 @@ export const projectsData = [
 				title: 'Implement responsive navigation bar',
 				description: 'The application is missing a responsive navbar.',
 				status: TaskStatuses.IN_PROGRESS,
-				project: Projects.FRONTEND,
+				project: 'Frontend',
 				assignee: 'mrsatan',
 			},
 			{
@@ -99,7 +92,7 @@ export const projectsData = [
 				description:
 					'Padding in the articles section is uneven and needs to be corrected ASAP.',
 				status: TaskStatuses.DONE,
-				project: Projects.FRONTEND,
+				project: 'Frontend',
 				assignee: 'chichi',
 			},
 			{
@@ -109,7 +102,7 @@ export const projectsData = [
 				description:
 					'There are two identical component files in the Markdown app repository and one has to be removed.',
 				status: TaskStatuses.UNDER_REVIEW,
-				project: Projects.FRONTEND,
+				project: 'Frontend',
 				assignee: 'masterroshi',
 			},
 		],
@@ -129,7 +122,7 @@ export const projectsData = [
 				description:
 					'This task involves enhancing the security posture of the Markdown app project by updating its API endpoints. By implementing industry-standard security measures, such as authentication, authorization, and data validation, we aim to safeguard user data and protect against potential security threats.',
 				status: TaskStatuses.IN_PROGRESS,
-				project: Projects.BACKEND,
+				project: 'Backend',
 				assignee: 'videl',
 			},
 			{
@@ -139,7 +132,7 @@ export const projectsData = [
 					'Refactor database queries to improve performance in the OnBoard app.',
 				description: `Your goal is to optimize query execution, ultimately enhancing the application's responsiveness and delivering a more seamless user experience`,
 				status: TaskStatuses.DONE,
-				project: Projects.BACKEND,
+				project: 'Backend',
 				assignee: 'videl',
 			},
 			{
@@ -150,7 +143,7 @@ export const projectsData = [
 				description:
 					'The assignment is to implement user authentication and authorization features within the Markdown App project.',
 				status: TaskStatuses.TO_DO,
-				project: Projects.BACKEND,
+				project: 'Backend',
 				assignee: 'piccolo',
 			},
 			{
@@ -161,7 +154,7 @@ export const projectsData = [
 				description:
 					'Your role involves addressing data validation issues within the Markdown App project to mitigate potential vulnerabilities.',
 				status: TaskStatuses.BLOCKED,
-				project: Projects.BACKEND,
+				project: 'Backend',
 				assignee: 'tienshinhan',
 			},
 			{
@@ -172,14 +165,14 @@ export const projectsData = [
 				description:
 					'Your task is to optimize the file upload functionality in the Markdown App project to enhance scalability.',
 				status: TaskStatuses.TO_DO,
-				project: Projects.BACKEND,
+				project: 'Backend',
 				assignee: 'piccolo',
 			},
 		],
 	},
 	{
 		projectName: 'UX/UI',
-		projectId: Projects.UX_UI,
+		projectId: Projects.UXUI,
 		projectDescription:
 			'This board is used for tracking tasks within the AI Engineering team',
 		collaborators: ['majinbuu', 'krillin', 'android18'],
@@ -191,7 +184,7 @@ export const projectsData = [
 				description:
 					'Perform usability testing on the Markdown App project to identify pain points and areas for improvement, refining interface elements and interactions based on user feedback.',
 				status: TaskStatuses.IN_PROGRESS,
-				project: Projects.UX_UI,
+				project: 'UX/UI',
 				assignee: 'android18',
 			},
 			{
@@ -202,7 +195,7 @@ export const projectsData = [
 				description:
 					'Design intuitive and visually appealing icons and graphics to enhance the user experience and brand identity within the OnBoard app.',
 				status: TaskStatuses.TO_DO,
-				project: Projects.UX_UI,
+				project: 'UX/UI',
 				assignee: 'majinbuu',
 			},
 			{
@@ -213,7 +206,7 @@ export const projectsData = [
 				description:
 					'Create wireframes and prototypes to iterate on new features and functionalities, ensuring a user-centric approach in the development process.',
 				status: TaskStatuses.DONE,
-				project: Projects.UX_UI,
+				project: 'UX/UI',
 				assignee: 'krillin',
 			},
 			{
@@ -223,7 +216,7 @@ export const projectsData = [
 					'Conduct user research to gather feedback and insights for improving the navigation flow and layout of the Markdown app project',
 				description: '',
 				status: TaskStatuses.IN_PROGRESS,
-				project: Projects.UX_UI,
+				project: 'UX/UI',
 				assignee: 'krillin',
 			},
 		],
@@ -242,7 +235,7 @@ export const projectsData = [
 					'Develop a machine learning model for sentiment analysis to analyze user feedback and sentiment trends within the Markdown App project',
 				description: '',
 				status: TaskStatuses.IN_PROGRESS,
-				project: Projects.AI,
+				project: 'AI',
 				assignee: 'songohan',
 			},
 			{
@@ -252,7 +245,7 @@ export const projectsData = [
 				description:
 					'Create a recommendation system for a music streaming service to personalize song suggestions for users based on their listening history and preferences.',
 				status: TaskStatuses.BLOCKED,
-				project: Projects.AI,
+				project: 'AI',
 				assignee: 'frieza',
 			},
 			{
@@ -262,7 +255,7 @@ export const projectsData = [
 					'Develop a computer vision algorithm for object detection to assist in inventory managent',
 				description: '',
 				status: TaskStatuses.TO_DO,
-				project: Projects.AI,
+				project: 'AI',
 				assignee: 'cell',
 			},
 		],
@@ -280,7 +273,7 @@ export const projectsData = [
 				title: 'Conduct usability testing sessions with end-users',
 				description: `Facilitate usability testing sessions with end-users to gather valuable feedback on the application's interface and overall user experience. This involves planning and executing user tests, observing user interactions, and collecting actionable insights to enhance the usability and effectiveness of the product.`,
 				status: TaskStatuses.TO_DO,
-				project: Projects.QA,
+				project: 'QA',
 				assignee: 'vegeta',
 			},
 			{
@@ -289,7 +282,7 @@ export const projectsData = [
 				title: 'Conduct usability testing sessions with end-users',
 				description: `Perform thorough regression testing on the latest web release to ensure that new features, bug fixes, and changes haven't introduced any unintended issues or regressions. This involves systematically testing all functionalities of the web application to verify its stability and reliability across different browsers and devices, helping maintain a high standard of quality before deployment.`,
 				status: TaskStatuses.TO_DO,
-				project: Projects.QA,
+				project: 'QA',
 				assignee: 'beerus',
 			},
 			{
@@ -298,7 +291,7 @@ export const projectsData = [
 				title: 'Financial software security testing',
 				description: `Conduct comprehensive security testing on the financial software to identify and address potential vulnerabilities and threats. This involves assessing the application's resilience against various security risks, such as unauthorized access, data breaches, and manipulation, ensuring that sensitive financial data is protected and compliant with industry standards and regulations.`,
 				status: TaskStatuses.DONE,
-				project: Projects.QA,
+				project: 'QA',
 				assignee: 'trunks',
 			},
 		],

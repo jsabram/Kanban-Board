@@ -23,20 +23,19 @@ export interface SelectProps {
 	id: string;
 	className?: string;
 	options: string[];
-	defaultOption: string;
+	defaultOption?: string;
 	onBlur?: (e: React.FocusEvent) => void;
 	onChange?: (e: React.ChangeEvent) => void;
+	value?: string
 }
 
 export interface TaskListProps {
 	tasks: TaskObject[];
-	priorityId: string;
 	priorityOptions: string[];
-	priorityOnChange: (e: React.ChangeEvent) => void;
-	projectId: string;
 	projectOptions: string[];
-	projectOnChange: (e: React.ChangeEvent) => void;
-	defaultOption: string;
+	statusOptions: string[];
+	assigneeOptions?: string[];
+	listType: 'assigned' | 'all';
 }
 
 export interface TaskCardProps {
@@ -61,7 +60,7 @@ export interface SearchResultProps {
 
 export interface BoardColumnProps {
 	statusName: string;
-	tasks: TaskObject[]
+	tasks: TaskObject[];
 }
 
 // Other types
@@ -89,9 +88,16 @@ export interface UserObject {
 	username: string;
 }
 
-export interface RulesObject {
-	priority: string;
-	project: string;
+export interface FilterObject {
+	filterName: string;
+	filterValue: string;
+}
+
+export interface FiltersObject {
+	priority: string[];
+	status: string[];
+	project: string[];
+	assignee: string[];
 }
 
 export interface NotificationObject {
@@ -105,4 +111,14 @@ export interface NotificationObject {
 export interface ProjectsSliceObject {
 	projects: ProjectObject[];
 	users: UserObject[];
+}
+
+// Enums
+
+export enum TaskStatuses {
+	TO_DO = 'To do',
+	IN_PROGRESS = 'In progress',
+	UNDER_REVIEW = 'Under review',
+	BLOCKED = 'Blocked',
+	DONE = 'Done',
 }

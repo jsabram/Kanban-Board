@@ -2,8 +2,9 @@ import { useState, useRef } from 'react';
 import { useSubmit } from '../../../../hooks/useSubmit';
 import PageHeading from '../../../reusable/PageHeading';
 import Form from '../../../reusable/Form';
+import SelectedOption from '../../../reusable/SelectedOption';
 import Button from '../../../reusable/Button';
-import RemoveIcon from '../../../icon-components/RemoveIcon';
+// import RemoveIcon from '../../../icon-components/RemoveIcon';
 
 import './CreateBoard.scss';
 
@@ -131,17 +132,8 @@ const CreateBoard = () => {
 				</select>
 				{selectedCollaborators.length > 0 && (
 					<ul className='collaborators'>
-						{selectedCollaborators.map((person) => (
-							<div key={person.id} className='collaborator'>
-								<li className='collaborator__username'>{person.username} </li>
-								<button
-									type='button'
-									className='collaborator__remove-btn'
-									onClick={() => removeCollaborator(person.id)}
-								>
-									<RemoveIcon />
-								</button>
-							</div>
+						{selectedCollaborators.map((person, idx) => (
+							<SelectedOption key={idx} optionText={person.username} onClick={() => removeCollaborator(person.id)} />
 						))}
 					</ul>
 				)}
