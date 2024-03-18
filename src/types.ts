@@ -29,6 +29,11 @@ export interface SelectProps {
 	onChange?: (e: React.ChangeEvent) => void;
 }
 
+export interface SelectedOptionProps {
+	optionText: string;
+	onClick: () => void;
+}
+
 export interface TaskListProps {
 	tasks: TaskObject[];
 	priorityOptions: string[];
@@ -39,6 +44,7 @@ export interface TaskListProps {
 }
 
 export interface TaskCardProps {
+	className?: string,
 	priority: string;
 	taskId: string;
 	title: string;

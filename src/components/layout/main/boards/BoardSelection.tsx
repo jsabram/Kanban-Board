@@ -3,13 +3,16 @@ import { useAppSelector } from '../../../../store/typedHooks';
 import PageHeading from '../../../reusable/PageHeading';
 import BoardCard from './BoardCard';
 import Select from '../../../reusable/Select';
+import { TaskStatuses, ProjectObject } from '../../../../types';
 
 import './BoardSelection.scss';
 
 const BoardSelection = () => {
 	const projects = useAppSelector((state) => state.projectsData.projects);
 
-	const [displayedProjects, setDisplayedProjects] = useState(projects);
+	const [displayedProjects, setDisplayedProjects] = useState<ProjectObject[]>(
+		[]
+	);
 
 	const selectBoard = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLSelectElement;
@@ -23,6 +26,7 @@ const BoardSelection = () => {
 					)
 			  );
 	};
+
 	return (
 		<section className='boards'>
 			<PageHeading>Your boards</PageHeading>
@@ -40,18 +44,35 @@ const BoardSelection = () => {
 				onChange={selectBoard}
 			/>
 			<div className='boards__cards'>
-				{displayedProjects.map((project, idx) => (
-					<BoardCard
-						key={idx}
-						path={project.projectId}
-						projectTitle={project.projectName}
-						activeTasks={
-							project.tasks.filter(
-								(task) => task.status.toLowerCase() !== 'done'
-							).length
-						}
-					/>
-				))}
+				{displayedProjects.length > 0
+					? displayedProjects.map((project, idx) => (
+							<BoardCard
+								key={idx}
+								path={project.projectId}
+								projectTitle={project.projectName}
+								activeTasks={
+									project.tasks.filter(
+										(task) =>
+											task.status.toLowerCase() !==
+											TaskStatuses.DONE.toLowerCase()
+									).length
+								}
+							/>
+					  ))
+					: projects.map((project, idx) => (
+							<BoardCard
+								key={idx}
+								path={project.projectId}
+								projectTitle={project.projectName}
+								activeTasks={
+									project.tasks.filter(
+										(task) =>
+											task.status.toLowerCase() !==
+											TaskStatuses.DONE.toLowerCase()
+									).length
+								}
+							/>
+					  ))}
 			</div>
 		</section>
 	);

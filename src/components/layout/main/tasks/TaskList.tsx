@@ -8,8 +8,8 @@ import {
 	FilterCriteria,
 } from '../../../../types';
 import Select from '../../../reusable/Select';
-import TaskCard from './TaskCard';
 import SelectedOption from '../../../reusable/SelectedOption';
+import TaskCard from './TaskCard';
 
 import './TaskList.scss';
 
@@ -104,7 +104,7 @@ const TaskList: React.FC<TaskListProps> = ({
 		<div className='task-list'>
 			<div className='task-list__filters'>
 				<Select
-					id={`${FilterCriteria.PRIORITY.toLowerCase()}-${listType}`}
+					id={`${FilterCriteria.PRIORITY.toLowerCase()}-${listType}`} className='task-list__filters-select'
 					options={priorityOptions}
 					defaultOption={FilterCriteria.PRIORITY}
 					value={FilterCriteria.PRIORITY}
@@ -113,7 +113,7 @@ const TaskList: React.FC<TaskListProps> = ({
 					}}
 				/>
 				<Select
-					id={`${FilterCriteria.STATUS.toLowerCase()}-${listType}`}
+					id={`${FilterCriteria.STATUS.toLowerCase()}-${listType}`} className='task-list__filters-select'
 					options={statusOptions}
 					defaultOption={FilterCriteria.STATUS}
 					value={FilterCriteria.STATUS}
@@ -122,7 +122,7 @@ const TaskList: React.FC<TaskListProps> = ({
 					}}
 				/>
 				<Select
-					id={`${FilterCriteria.PROJECT.toLowerCase()}-${listType}`}
+					id={`${FilterCriteria.PROJECT.toLowerCase()}-${listType}`} className='task-list__filters-select'
 					options={projectOptions}
 					defaultOption={FilterCriteria.PROJECT}
 					value={FilterCriteria.PROJECT}
@@ -132,7 +132,7 @@ const TaskList: React.FC<TaskListProps> = ({
 				/>
 				{listType === 'all' && (
 					<Select
-						id={`${FilterCriteria.ASSIGNEE.toLowerCase()}-${listType}`}
+						id={`${FilterCriteria.ASSIGNEE.toLowerCase()}-${listType}`} className='task-list__filters-select'
 						options={assigneeOptions!}
 						defaultOption={FilterCriteria.ASSIGNEE}
 						value={FilterCriteria.ASSIGNEE}
@@ -143,8 +143,8 @@ const TaskList: React.FC<TaskListProps> = ({
 				)}
 			</div>
 			{filtersArr.length > 0 && (
-				<>
-					<ul>
+				<div className='task-list__applied-filters'>
+					<ul className='task-list__applied-filters-list'>
 						{filtersArr.map((filter, idx) => (
 							<SelectedOption
 								key={idx}
@@ -155,8 +155,8 @@ const TaskList: React.FC<TaskListProps> = ({
 							/>
 						))}
 					</ul>
-					<button onClick={resetFilters}>Reset filters</button>
-				</>
+					<button onClick={resetFilters} className='task-list__applied-filters-btn'>Reset filters</button>
+				</div>
 			)}
 			<div>
 				{filteredTasks.length === 0 &&

@@ -1,11 +1,7 @@
+import { SelectedOptionProps } from '../../types';
 import RemoveIcon from '../icon-components/RemoveIcon';
 
 import './SelectedOption.scss';
-
-interface SelectedOptionProps {
-	optionText: string;
-	onClick: () => void;
-}
 
 const SelectedOption: React.FC<SelectedOptionProps> = ({
 	optionText,

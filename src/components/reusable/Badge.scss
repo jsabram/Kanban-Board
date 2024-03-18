@@ -1,0 +1,47 @@
+@use '../../assets/scss/colors.scss' as *;
+
+.badge {
+    margin-right: 0.8rem;
+    padding: 0 0.5rem;
+    border-radius: 1rem;
+
+    &--to-do {
+        background-color: map-get($colors, c_to_do_bg);
+        color: map-get($colors, c_to_do_text);
+    }
+
+    &--in-progress {
+        background-color: map-get($colors, c_in_progress_bg);
+        color: map-get($colors, c_in_progress_text);
+    }
+
+    &--under-review {
+        background-color: map-get($colors, c_under_review_bg);
+        color: map-get($colors, c_under_review_text);
+    }
+
+    &--blocked {
+        background-color: map-get($colors, c_blocked_bg);
+        color: map-get($colors, c_blocked_text);
+    }
+
+    &--done {
+        background-color: map-get($colors, c_done_bg);
+        color: map-get($colors, c_done_text);
+    }
+
+    &--low {
+        background-color: map-get($colors, c_low_bg);
+        color: map-get($colors, c_low_text);
+    }
+
+    &--medium {
+        background-color: map-get($colors, c_medium_bg);
+        color: map-get($colors, c_medium_text);
+    }
+
+    &--high {
+        background-color: map-get($colors, c_high_bg);
+        color: map-get($colors, c_high_text);
+    }
+}

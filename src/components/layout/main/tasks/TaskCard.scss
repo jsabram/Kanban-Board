@@ -20,54 +20,23 @@
 		transform: scale(1.02);
 	}
 
-	&::before {
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		width: 5px;
-		content: '';
-	}
-
-	&--low {
-		&::before {
-			background-color: map-get($colors, c_primary);
-		}
-	}
-
-	&--medium {
-		&::before {
-			background-color: map-get($colors, c_yellow);
-		}
-	}
-
-	&--high {
-		&::before {
-			background-color: map-get($colors, c_red);
-		}
-	}
-
-	&-header {
-		display: flex;
-		font-size: 1.4rem;
-
-		&--id {
-			margin-right: 0.5rem;
-			padding-right: 0.5rem;
-			border-right: 1px solid map-get($colors, c_gray);
-			font-weight: 400;
-		}
-	}
-
 	&-title {
-		margin-block-end: 1rem;
+		margin-block-end: 0.5rem;
 		font-size: 1.5rem;
 	}
 
+	&-badges {
+		display: flex;
+		margin-block-end: 1rem;
+	}
+
+	&-badges,
 	&-info {
 		font-size: 1.2rem;
 		line-height: 1.5;
+	}
 
+	&-info {
 		span {
 			font-weight: bold;
 		}
@@ -76,6 +45,7 @@
 
 @media screen and (min-width: 992px) {
 	.task__card {
+		&_badges,
 		&-info {
 			font-size: 1.3rem;
 		}

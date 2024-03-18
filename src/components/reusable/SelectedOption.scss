@@ -5,7 +5,7 @@
 	@include flexbox(space-between, flex-start, row);
 	margin: 0 1rem 1rem 0;
 	padding: 0.8rem 1.6rem;
-	background-color: map-get($colors, c_ash);
+	background-color: map-get($colors, c_white_medium);
 	border-radius: 1rem;
 
 	&__text {

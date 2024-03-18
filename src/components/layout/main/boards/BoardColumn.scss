@@ -1,11 +1,12 @@
 @use '../../../../assets/scss/colors.scss' as *;
 
 .board__col {
-	background-color: map-get($colors, c_ash_light);
+	// padding: 1rem 2rem;
+	background-color: map-get($colors, c_white_medium);
 	border-radius: 1rem;
 
 	&-title {
-		padding: 1rem 2rem;
+		padding: 1rem 2.5rem;
 		font-size: 1.4rem;
 		font-weight: bold;
 		border-bottom: 1px solid map-get($colors, c_gray_light);
@@ -16,7 +17,12 @@
 	}
 
 	&-tasks {
+		padding: .5rem;
 		min-height: 100px;
+	}
+
+	&-task {
+		background-color: map-get($colors, c_white);
 	}
 }
 

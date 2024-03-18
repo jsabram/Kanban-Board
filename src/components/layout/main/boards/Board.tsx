@@ -19,13 +19,14 @@ const Board = () => {
 
 	return (
 		<section>
-			<PageHeading>{currentProject!.projectName} board</PageHeading>
+			<PageHeading>{currentProject?.projectName} board</PageHeading>
+			<p className='boards__msg'>Drag and drop the tasks between columns to change their status.</p>
 			<div className='board'>
 				{taskStatuses.map((status, idx) => (
 					<BoardColumn
 						key={idx}
 						statusName={status}
-						tasks={currentProject!.tasks}
+						tasks={currentProject?.tasks || []}
 					/>
 				))}
 			</div>

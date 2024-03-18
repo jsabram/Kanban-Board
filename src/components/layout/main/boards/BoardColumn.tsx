@@ -18,6 +18,7 @@ const BoardColumn: React.FC<BoardColumnProps> = ({ statusName, tasks }) => {
 				{statusTasks?.map((task, idx) => (
 					<TaskCard
 						key={idx}
+						className='board__col-task'
 						priority={task.priority}
 						taskId={task.id}
 						title={task.title}
