@@ -24,7 +24,7 @@ export interface SelectProps {
 	className?: string;
 	options: string[];
 	defaultOption?: string;
-	value?: string
+	value?: string;
 	onBlur?: (e: React.FocusEvent) => void;
 	onChange?: (e: React.ChangeEvent) => void;
 }
@@ -44,7 +44,7 @@ export interface TaskListProps {
 }
 
 export interface TaskCardProps {
-	className?: string,
+	className?: string;
 	priority: string;
 	taskId: string;
 	title: string;
@@ -62,6 +62,7 @@ export interface SearchResultProps {
 	taskTitle: string;
 	taskId: string;
 	taskAssignee: string;
+	taskProject: string;
 }
 
 export interface BoardColumnProps {
@@ -133,5 +134,5 @@ export enum FilterCriteria {
 	PRIORITY = 'Priority',
 	STATUS = 'Status',
 	PROJECT = 'Project',
-	ASSIGNEE = 'Assignee'
+	ASSIGNEE = 'Assignee',
 }

@@ -20,6 +20,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
 						taskTitle={task.title}
 						taskId={task.id}
 						taskAssignee={task.assignee}
+						taskProject={task.project}
 					/>
 				))
 			) : (
