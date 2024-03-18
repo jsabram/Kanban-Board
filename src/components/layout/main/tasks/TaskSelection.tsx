@@ -18,7 +18,9 @@ const TaskSelection = () => {
 	// Extracting tasks that are still active
 	const allTasksArr = ([] as TaskObject[])
 		.concat(...projects.map((project) => project.tasks))
-		.filter((task) => task.status.toLowerCase() !== TaskStatuses.DONE);
+		.filter(
+			(task) => task.status.toLowerCase() !== TaskStatuses.DONE.toLowerCase()
+		);
 	const userTasksArr = allTasksArr.filter((task) => task.assignee === 'videl'); // Assignee to be changed to the user
 
 	const { sortByPriority, capitalize } = useUtils();
@@ -26,7 +28,11 @@ const TaskSelection = () => {
 	// Defining available Select element options
 	const projectsNames = projects.map((project) => project.projectName);
 	const priorityNames = prioritiesData.map((priority) => capitalize(priority));
-	const statusNames = taskStatuses.map((status) => capitalize(status));
+	const statusNames = taskStatuses
+		.filter(
+			(status) => status.toLowerCase() !== TaskStatuses.DONE.toLowerCase()
+		)
+		.map((status) => capitalize(status));
 	const assigneeNames = usersData.map((user) => user.username);
 
 	return (

@@ -122,3 +122,10 @@ export enum TaskStatuses {
 	BLOCKED = 'Blocked',
 	DONE = 'Done',
 }
+
+export enum FilterCriteria {
+	PRIORITY = 'Priority',
+	STATUS = 'Status',
+	PROJECT = 'Project',
+	ASSIGNEE = 'Assignee'
+}

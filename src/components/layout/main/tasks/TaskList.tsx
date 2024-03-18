@@ -5,6 +5,7 @@ import {
 	TaskObject,
 	FiltersObject,
 	FilterObject,
+	FilterCriteria,
 } from '../../../../types';
 import Select from '../../../reusable/Select';
 import TaskCard from './TaskCard';
@@ -86,7 +87,7 @@ const TaskList: React.FC<TaskListProps> = ({
 			[propertyName]: updatedPropertyValue,
 		};
 
-		const filteredResults = applyTaskFilter(filteredTasks, updatedFilters);
+		const filteredResults = applyTaskFilter(tasks, updatedFilters);
 
 		setFilters(updatedFilters);
 		setFiltersArr(updatedFiltersArr);
@@ -103,40 +104,40 @@ const TaskList: React.FC<TaskListProps> = ({
 		<div className='task-list'>
 			<div className='task-list__filters'>
 				<Select
-					id={`priority-${listType}`}
+					id={`${FilterCriteria.PRIORITY.toLowerCase()}-${listType}`}
 					options={priorityOptions}
-					defaultOption='Priority'
-					value='Priority'
+					defaultOption={FilterCriteria.PRIORITY}
+					value={FilterCriteria.PRIORITY}
 					onChange={(e) => {
-						filterTasks(e, 'priority');
+						filterTasks(e, FilterCriteria.PRIORITY.toLowerCase());
 					}}
 				/>
 				<Select
-					id={`status-${listType}`}
+					id={`${FilterCriteria.STATUS.toLowerCase()}-${listType}`}
 					options={statusOptions}
-					defaultOption='Status'
-					value='Status'
+					defaultOption={FilterCriteria.STATUS}
+					value={FilterCriteria.STATUS}
 					onChange={(e) => {
-						filterTasks(e, 'status');
+						filterTasks(e, FilterCriteria.STATUS.toLowerCase());
 					}}
 				/>
 				<Select
-					id={`project-${listType}`}
+					id={`${FilterCriteria.PROJECT.toLowerCase()}-${listType}`}
 					options={projectOptions}
-					defaultOption='Project'
-					value='Project'
+					defaultOption={FilterCriteria.PROJECT}
+					value={FilterCriteria.PROJECT}
 					onChange={(e) => {
-						filterTasks(e, 'project');
+						filterTasks(e, FilterCriteria.PROJECT.toLowerCase());
 					}}
 				/>
 				{listType === 'all' && (
 					<Select
-						id={`assignee-${listType}`}
+						id={`${FilterCriteria.ASSIGNEE.toLowerCase()}-${listType}`}
 						options={assigneeOptions!}
-						defaultOption='Assignee'
-						value='Assignee'
+						defaultOption={FilterCriteria.ASSIGNEE}
+						value={FilterCriteria.ASSIGNEE}
 						onChange={(e) => {
-							filterTasks(e, 'assignee');
+							filterTasks(e, FilterCriteria.ASSIGNEE.toLowerCase());
 						}}
 					/>
 				)}
