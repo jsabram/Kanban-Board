@@ -1,0 +1,30 @@
+@use '../../../../assets/scss/colors.scss' as *;
+@use '../../../../assets/scss/mixins.scss' as *;
+
+.task {
+	max-width: 1600px;
+
+	&__info {
+		&-details {
+			display: flex;
+			margin-block: 0.5rem;
+		}
+
+		&-controls {
+			margin-block: 1.5rem;
+
+			&-edit {
+				margin-left: 2rem;
+				@include text-btn;
+			}
+		}
+	}
+
+	&__details {
+		margin-block: 3rem;
+
+        &-description {
+            margin-block-start: 1rem;
+        }
+	}
+}

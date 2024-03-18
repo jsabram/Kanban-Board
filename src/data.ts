@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { TaskStatuses } from './types';
 
 enum Priorities {
@@ -67,7 +66,7 @@ export const projectsData = [
 		collaborators: ['bulma', 'mrsatan', 'masterroshi', 'chichi'],
 		tasks: [
 			{
-				id: `task-${nanoid()}`,
+				id: `task-1`,
 				priority: Priorities.LOW,
 				title: 'Remove comments from the Header.tsx file',
 				description:
@@ -77,7 +76,7 @@ export const projectsData = [
 				assignee: 'bulma',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-2`,
 				priority: Priorities.MEDIUM,
 				title: 'Implement responsive navigation bar',
 				description: 'The application is missing a responsive navbar.',
@@ -86,7 +85,7 @@ export const projectsData = [
 				assignee: 'mrsatan',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-3`,
 				priority: Priorities.HIGH,
 				title: 'Fix padding in the articles section',
 				description:
@@ -96,7 +95,7 @@ export const projectsData = [
 				assignee: 'chichi',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-4`,
 				priority: Priorities.LOW,
 				title: 'Remove duplicate components in the CRUD Markdown app',
 				description:
@@ -115,7 +114,7 @@ export const projectsData = [
 		collaborators: ['tienshinhan', 'videl', 'piccolo'],
 		tasks: [
 			{
-				id: `task-${nanoid()}`,
+				id: `task-5`,
 				priority: Priorities.HIGH,
 				title:
 					'Update API endpoints for enhanced security measures in the Markdown app project',
@@ -126,7 +125,7 @@ export const projectsData = [
 				assignee: 'videl',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-6`,
 				priority: Priorities.MEDIUM,
 				title:
 					'Refactor database queries to improve performance in the OnBoard app.',
@@ -136,7 +135,7 @@ export const projectsData = [
 				assignee: 'videl',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-7`,
 				priority: Priorities.LOW,
 				title:
 					'Implement user authentication and authorization features in the OnBoard app project',
@@ -147,7 +146,7 @@ export const projectsData = [
 				assignee: 'piccolo',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-8`,
 				priority: Priorities.MEDIUM,
 				title:
 					'Resolve data validation issues to prevent potential vulnerabilities in the Markdown app',
@@ -158,7 +157,7 @@ export const projectsData = [
 				assignee: 'tienshinhan',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-9`,
 				priority: Priorities.LOW,
 				title:
 					'Optimize file upload functionality for better scalability in the Markdown App project',
@@ -178,7 +177,7 @@ export const projectsData = [
 		collaborators: ['majinbuu', 'krillin', 'android18'],
 		tasks: [
 			{
-				id: `task-${nanoid()}`,
+				id: `task-10`,
 				priority: Priorities.LOW,
 				title: 'Perform usability testing on the Markdown App',
 				description:
@@ -188,7 +187,7 @@ export const projectsData = [
 				assignee: 'android18',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-11`,
 				priority: Priorities.LOW,
 				title:
 					'Design intuitive and visually appealing icons for the OnBoard app',
@@ -199,7 +198,7 @@ export const projectsData = [
 				assignee: 'majinbuu',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-12`,
 				priority: Priorities.MEDIUM,
 				title:
 					'Create wireframes and prototypes to iterate on new features and functionalities',
@@ -210,7 +209,7 @@ export const projectsData = [
 				assignee: 'krillin',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-13`,
 				priority: Priorities.LOW,
 				title:
 					'Conduct user research to gather feedback and insights for improving the navigation flow and layout of the Markdown app project',
@@ -229,7 +228,7 @@ export const projectsData = [
 		collaborators: ['songohan', 'cell', 'frieza'],
 		tasks: [
 			{
-				id: `task-${nanoid()}`,
+				id: `task-14`,
 				priority: Priorities.HIGH,
 				title:
 					'Develop a machine learning model for sentiment analysis to analyze user feedback and sentiment trends within the Markdown App project',
@@ -239,7 +238,7 @@ export const projectsData = [
 				assignee: 'songohan',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-15`,
 				priority: Priorities.LOW,
 				title: 'Create a recommendation system for a music streaming service',
 				description:
@@ -249,7 +248,7 @@ export const projectsData = [
 				assignee: 'frieza',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-16`,
 				priority: Priorities.MEDIUM,
 				title:
 					'Develop a computer vision algorithm for object detection to assist in inventory managent',
@@ -268,7 +267,7 @@ export const projectsData = [
 		collaborators: ['vegeta', 'beerus', 'trunks'],
 		tasks: [
 			{
-				id: `task-${nanoid()}`,
+				id: `task-17`,
 				priority: Priorities.MEDIUM,
 				title: 'Conduct usability testing sessions with end-users',
 				description: `Facilitate usability testing sessions with end-users to gather valuable feedback on the application's interface and overall user experience. This involves planning and executing user tests, observing user interactions, and collecting actionable insights to enhance the usability and effectiveness of the product.`,
@@ -277,7 +276,7 @@ export const projectsData = [
 				assignee: 'vegeta',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-18`,
 				priority: Priorities.LOW,
 				title: 'Conduct usability testing sessions with end-users',
 				description: `Perform thorough regression testing on the latest web release to ensure that new features, bug fixes, and changes haven't introduced any unintended issues or regressions. This involves systematically testing all functionalities of the web application to verify its stability and reliability across different browsers and devices, helping maintain a high standard of quality before deployment.`,
@@ -286,7 +285,7 @@ export const projectsData = [
 				assignee: 'beerus',
 			},
 			{
-				id: `task-${nanoid()}`,
+				id: `task-19`,
 				priority: Priorities.HIGH,
 				title: 'Financial software security testing',
 				description: `Conduct comprehensive security testing on the financial software to identify and address potential vulnerabilities and threats. This involves assessing the application's resilience against various security risks, such as unauthorized access, data breaches, and manipulation, ensuring that sensitive financial data is protected and compliant with industry standards and regulations.`,

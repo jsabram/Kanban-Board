@@ -14,8 +14,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
 	assignee,
 	project,
 }) => {
-	const { capitalize } = useUtils();
-	const statusClass = status.replaceAll(' ', '-').toLowerCase();
+	const { capitalize, createClassName } = useUtils();
 
 	return (
 		<Link
@@ -25,7 +24,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
 			<h4 className='task__card-title'>{title}</h4>
 			<div className='task__card-badges'>
 				<Badge className={priority} badgeText={capitalize(priority)} />
-				<Badge className={statusClass} badgeText={status} />
+				<Badge className={createClassName(status)} badgeText={status} />
 			</div>
 			<p className='task__card-info'>
 				<span>Assignee:</span> @{assignee}

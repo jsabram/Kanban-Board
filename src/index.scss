@@ -31,6 +31,10 @@ svg {
 	}
 }
 
+.gray-text {
+	color: map-get($colors, c_gray_light);
+}
+
 @media screen and (min-width: 992px) {
 	body,
 	input,

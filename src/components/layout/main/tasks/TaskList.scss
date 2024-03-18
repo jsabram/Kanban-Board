@@ -17,23 +17,8 @@
 		}
 
 		&-btn {
-			margin-block-end: .5rem;
-			background: transparent;
-			border: none;
-			outline-color: transparent;
-			font-size: 1.4rem;
-			color: map-get($colors, c_gray_light);
-			cursor: pointer;
-			transition: color 0.3s;
-
-			&:hover {
-				color: map-get($colors, c_primary);
-			}
-
-			&:focus {
-				outline-color: map-get($colors, c_primary);
-				color: map-get($colors, c_primary);
-			}
+			margin-block-end: 0.5rem;
+			@include text-btn;
 		}
 	}
 

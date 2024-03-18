@@ -61,3 +61,22 @@
 	box-shadow: 9px 8px 24px -12px rgba(205, 210, 214, 1);
 	text-decoration: none;
 }
+
+@mixin text-btn {
+	background: transparent;
+	border: none;
+	outline-color: transparent;
+	font-size: 1.4rem;
+	color: map-get($colors, c_gray_light);
+	cursor: pointer;
+	transition: color 0.3s;
+
+	&:hover {
+		color: map-get($colors, c_primary);
+	}
+
+	&:focus {
+		outline-color: map-get($colors, c_primary);
+		color: map-get($colors, c_primary);
+	}
+}

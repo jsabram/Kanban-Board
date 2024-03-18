@@ -33,5 +33,11 @@ export const useUtils = () => {
 		return capitalizedText;
 	};
 
-	return { applyTaskFilter, sortByPriority, capitalize };
+	const createClassName = (text: string) => {
+		const newClassName = text.replaceAll(' ', '-').toLowerCase()
+
+		return newClassName
+	}
+
+	return { applyTaskFilter, sortByPriority, capitalize, createClassName };
 };

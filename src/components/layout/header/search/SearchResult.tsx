@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Badge from '../../../reusable/Badge';
 import { SearchResultProps } from '../../../../types';
 
 import './SearchResult.scss';
