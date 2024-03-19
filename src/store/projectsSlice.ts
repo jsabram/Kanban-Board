@@ -11,11 +11,33 @@ const projectsSlice = createSlice({
 	initialState,
 	reducers: {
 		setInitialData: (state, action) => {
-            state.projects = action.payload.projects;
-            state.users = action.payload.users
+			const { projects, users } = action.payload;
+
+			state.projects = projects;
+			state.users = users;
+		},
+		changeTaskStatus: (state, action) => {
+			const { taskId, taskProject, newStatus } = action.payload;
+
+			const project = state.projects.find(
+				(project) =>
+					project.projectName.toLowerCase() === taskProject.toLowerCase()
+			);
+
+			if (!project) {
+				return;
+			}
+
+			const task = project.tasks.find((task) => task.id === taskId);
+
+			if (!task) {
+				return;
+			}
+
+			task.status = newStatus;
 		},
 	},
 });
 
-export const { setInitialData } = projectsSlice.actions;
+export const { setInitialData, changeTaskStatus } = projectsSlice.actions;
 export default projectsSlice.reducer;

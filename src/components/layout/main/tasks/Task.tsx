@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../../store/typedHooks';
+import { changeTaskStatus } from '../../../../store/projectsSlice';
 import { useUtils } from '../../../../hooks/useUtils';
 import Select from '../../../reusable/Select';
 import Badge from '../../../reusable/Badge';
@@ -11,6 +13,8 @@ import './Task.scss';
 const Task = () => {
 	const { taskId } = useParams();
 
+	const dispatch = useDispatch();
+
 	const tasks = useAppSelector((state) =>
 		state.projectsData.projects.flatMap((projects) => projects.tasks)
 	);
@@ -19,10 +23,20 @@ const Task = () => {
 
 	const { capitalize, createClassName } = useUtils();
 
-	const changeTaskStatus = (e: React.ChangeEvent) => {
+	const changeStatus = (e: React.ChangeEvent) => {
 		const target = e.target as HTMLSelectElement;
 
-		console.log(target.value);
+		if (currentTask) {
+			dispatch(
+				changeTaskStatus({
+					taskId,
+					taskProject: currentTask.project,
+					newStatus: target.value,
+				})
+			);
+
+			// Consider adding a toast message confirming the status has been changed
+		}
 	};
 
 	return (
@@ -49,7 +63,7 @@ const Task = () => {
 						options={taskStatuses}
 						defaultOption='Change status'
 						value='Change status'
-						onChange={changeTaskStatus}
+						onChange={changeStatus}
 					/>
 					<button className='task__info-controls-edit'>Edit task</button>
 				</div>
